@@ -393,7 +393,7 @@ export default class ShopifyGtmInstrumentor {
 			productId: getShopifyId(product.id),
 			productTitle: product.title,
 			productVariantTitle: `${product.title} - ${variant.title}`,
-			productType: product.productType || product.type,
+			productType: product.productType || product.type || product.product.collections.edges[0].node.title,
 			productVendor: product.vendor,
 			productUrl:
 				(productUrl = `${this.storeUrl}/products/${product.handle}`),
@@ -597,6 +597,13 @@ fragment variant on ProductVariant {
 		handle
 		productType
 		vendor
+		collections(first: 1) {
+			edges {
+				node {
+					title
+				}
+			}
+		}
 	}
 }\
 `;
