@@ -388,8 +388,6 @@ export default class ShopifyGtmInstrumentor {
 		let productUrl, variantId;
 		const { product } = variant;
 
-		console.log(product);
-
 		// Product level info
 		return {
 			productId: getShopifyId(product.id),
