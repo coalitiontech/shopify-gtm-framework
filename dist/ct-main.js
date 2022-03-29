@@ -188,11 +188,19 @@ function ct_init_gtm_shopify() {
 		}
 
 		xhook.after(function(request, response) {
-			let url = String(response.url);
+			let responseUrl = String(response.url),
+				responseFinalUrl = String(request.finalUrl),
+				requestUrl = String(request.url);
 			if (
-				url.includes(window.routes.cart_add_url) ||
-				url.includes(window.routes.cart_change_url) ||
-				url.includes(window.routes.cart_update_url)
+				responseUrl.includes(window.routes.cart_add_url) ||
+				responseUrl.includes(window.routes.cart_change_url) ||
+				responseUrl.includes(window.routes.cart_update_url) ||
+				responseFinalUrl.includes(window.routes.cart_add_url) ||
+				responseFinalUrl.includes(window.routes.cart_change_url) ||
+				responseFinalUrl.includes(window.routes.cart_update_url) ||
+				requestUrl.includes(window.routes.cart_add_url) ||
+				requestUrl.includes(window.routes.cart_change_url) ||
+				requestUrl.includes(window.routes.cart_update_url)
 			) {
 				jQuery.getJSON(
 					`${settings.shop_url}/cart`,
