@@ -14,11 +14,11 @@ export default class ShopifyGtmInstrumentor {
 			enableCheckoutEcommerceProperty = true,
 		} = param;
 		this.debug = false;
-		this.storeUrl = '{{ shop.secure_url }}';
-		this.SHOPIFY_URL = '{{ shop.secure_url }}';
-		this.storefrontToken = window.sfToken;
-		this.SHOPIFY_STOREFRONT_TOKEN = window.sfToken;
-		this.currencyCode = '{{ shop.currency }}';
+		this.storeUrl = window.ct_gtm_shop_url;
+		this.SHOPIFY_URL = window.ct_gtm_shop_url;
+		this.storefrontToken = window.ct_gtm_sfToken;
+		this.SHOPIFY_STOREFRONT_TOKEN = window.ct_gtm_sfToken;
+		this.currencyCode = window.ct_gtm_currency;
 		this.disableEcommerceProperty = disableEcommerceProperty;
 		this.enableCheckoutEcommerceProperty = enableCheckoutEcommerceProperty;
 		this.occurances = [];
@@ -725,5 +725,5 @@ function __guard__(value, transform) {
 }
 
 window.gtmEcomm = new ShopifyGtmInstrumentor({
-	currencyCode: '{{ shop.currency }}',
+	currencyCode: window.ct_gtm_currency,
 });
