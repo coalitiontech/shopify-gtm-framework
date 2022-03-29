@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import sourcemaps from 'gulp-sourcemaps';
+import rename from 'gulp-rename';
 import buffer from 'gulp-buffer';
 import uglify from 'gulp-uglify';
 import tap from 'gulp-tap';
@@ -19,7 +19,9 @@ gulp.task('build', () => {
 			}),
 		)
 		.pipe(buffer())
+		.pipe(gulp.dest('./dist/'))
 		.pipe(uglify())
+		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest('./dist/'));
 });
 
