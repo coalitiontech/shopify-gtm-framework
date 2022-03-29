@@ -207,7 +207,7 @@ export default class ShopifyGtmInstrumentor {
 							[ecommerceAction]: {
 								products: [
 									{
-										...this.makeUaProductFieldObject(
+										items: this.makeUaProductFieldObject(
 											flatVariant,
 										),
 										quantity,
