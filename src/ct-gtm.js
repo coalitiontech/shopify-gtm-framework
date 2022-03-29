@@ -385,8 +385,14 @@ export default class ShopifyGtmInstrumentor {
 
 	// Make flat object from a variant with nested product data
 	makeFlatVariant(variant) {
-		let productUrl, variantId;
+		let productUrl, variantId, prodFallback;
 		const { product } = variant;
+
+		if (typeof product.collections !== 'undefined' && product.collections.length) {
+			prodFallback = product.collections.edges[ 0 ].node.title;
+		} else {
+			prodFallback = '';
+		}
 
 		// Product level info
 		return {
@@ -396,7 +402,7 @@ export default class ShopifyGtmInstrumentor {
 			productType:
 				product.productType ||
 				product.type ||
-				product.collections.edges[0].node.title,
+				prodFallback,
 			productVendor: product.vendor,
 			productUrl:
 				(productUrl = `${this.storeUrl}/products/${product.handle}`),
