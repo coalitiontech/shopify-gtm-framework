@@ -748,3 +748,6 @@ function __guard__(value, transform) {
 window.gtmEcomm = new ShopifyGtmInstrumentor({
 	currencyCode: window.ct_gtm_settings.currency,
 });
+if (window.Shopify && window.Shopify.Checkout) {
+	sessionStorage.removeItem('ct-cart-content');
+}

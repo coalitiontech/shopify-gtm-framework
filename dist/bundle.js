@@ -2373,6 +2373,10 @@
 			currencyCode: window.ct_gtm_settings.currency
 		});
 
+		if (window.Shopify && window.Shopify.Checkout) {
+			sessionStorage.removeItem('ct-cart-content');
+		}
+
 	}, {
 		"@babel/runtime/helpers/asyncToGenerator": 4,
 		"@babel/runtime/helpers/classCallCheck": 5,
@@ -2388,7 +2392,6 @@
 		"@babel/runtime/regenerator": 23
 	}]
 }, {}, [24])
-
 function ct_init_gtm_shopify() {
 	let current_cart,
 		settings = {
