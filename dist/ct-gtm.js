@@ -1,51 +1,51 @@
-(function () {
-	function r (e, n, t) {
-		function o (i, f) {
-			if (!n[ i ]) {
-				if (!e[ i ]) {
+(function() {
+	function r(e, n, t) {
+		function o(i, f) {
+			if (!n[i]) {
+				if (!e[i]) {
 					var c = "function" == typeof require && require;
 					if (!f && c) return c(i, !0);
 					if (u) return u(i, !0);
 					var a = new Error("Cannot find module '" + i + "'");
-					throw a.code = "MODULE_NOT_FOUND", a;
+					throw a.code = "MODULE_NOT_FOUND", a
 				}
-				var p = n[ i ] = {
+				var p = n[i] = {
 					exports: {}
 				};
-				e[ i ][ 0 ].call(p.exports, function (r) {
-					var n = e[ i ][ 1 ][ r ];
-					return o(n || r);
-				}, p, p.exports, r, e, n, t);
+				e[i][0].call(p.exports, function(r) {
+					var n = e[i][1][r];
+					return o(n || r)
+				}, p, p.exports, r, e, n, t)
 			}
-			return n[ i ].exports;
+			return n[i].exports
 		}
-		for (var u = "function" == typeof require && require, i = 0; i < t.length; i++) o(t[ i ]);
-		return o;
+		for (var u = "function" == typeof require && require, i = 0; i < t.length; i++) o(t[i]);
+		return o
 	}
-	return r;
+	return r
 })()({
-	1: [ function (require, module, exports) {
-		function _arrayLikeToArray (arr, len) {
+	1: [function(require, module, exports) {
+		function _arrayLikeToArray(arr, len) {
 			if (len == null || len > arr.length) len = arr.length;
 
 			for (var i = 0, arr2 = new Array(len); i < len; i++) {
-				arr2[ i ] = arr[ i ];
+				arr2[i] = arr[i];
 			}
 
 			return arr2;
 		}
 
-		module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	2: [ function (require, module, exports) {
-		function _arrayWithHoles (arr) {
+		module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	2: [function(require, module, exports) {
+		function _arrayWithHoles(arr) {
 			if (Array.isArray(arr)) return arr;
 		}
 
-		module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	3: [ function (require, module, exports) {
-		function _assertThisInitialized (self) {
+		module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	3: [function(require, module, exports) {
+		function _assertThisInitialized(self) {
 			if (self === void 0) {
 				throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
 			}
@@ -53,12 +53,12 @@
 			return self;
 		}
 
-		module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	4: [ function (require, module, exports) {
-		function asyncGeneratorStep (gen, resolve, reject, _next, _throw, key, arg) {
+		module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	4: [function(require, module, exports) {
+		function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
 			try {
-				var info = gen[ key ](arg);
+				var info = gen[key](arg);
 				var value = info.value;
 			} catch (error) {
 				reject(error);
@@ -72,18 +72,18 @@
 			}
 		}
 
-		function _asyncToGenerator (fn) {
-			return function () {
+		function _asyncToGenerator(fn) {
+			return function() {
 				var self = this,
 					args = arguments;
-				return new Promise(function (resolve, reject) {
+				return new Promise(function(resolve, reject) {
 					var gen = fn.apply(self, args);
 
-					function _next (value) {
+					function _next(value) {
 						asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
 					}
 
-					function _throw (err) {
+					function _throw(err) {
 						asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
 					}
 
@@ -92,48 +92,48 @@
 			};
 		}
 
-		module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	5: [ function (require, module, exports) {
-		function _classCallCheck (instance, Constructor) {
+		module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	5: [function(require, module, exports) {
+		function _classCallCheck(instance, Constructor) {
 			if (!(instance instanceof Constructor)) {
 				throw new TypeError("Cannot call a class as a function");
 			}
 		}
 
-		module.exports = _classCallCheck, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	6: [ function (require, module, exports) {
+		module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	6: [function(require, module, exports) {
 		var setPrototypeOf = require("./setPrototypeOf.js");
 
 		var isNativeReflectConstruct = require("./isNativeReflectConstruct.js");
 
-		function _construct (Parent, args, Class) {
+		function _construct(Parent, args, Class) {
 			if (isNativeReflectConstruct()) {
-				module.exports = _construct = Reflect.construct, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+				module.exports = _construct = Reflect.construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
 			} else {
-				module.exports = _construct = function _construct (Parent, args, Class) {
-					var a = [ null ];
+				module.exports = _construct = function _construct(Parent, args, Class) {
+					var a = [null];
 					a.push.apply(a, args);
 					var Constructor = Function.bind.apply(Parent, a);
 					var instance = new Constructor();
 					if (Class) setPrototypeOf(instance, Class.prototype);
 					return instance;
-				}, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+				}, module.exports.__esModule = true, module.exports["default"] = module.exports;
 			}
 
 			return _construct.apply(null, arguments);
 		}
 
-		module.exports = _construct, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+		module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	}, {
 		"./isNativeReflectConstruct.js": 13,
 		"./setPrototypeOf.js": 17
-	} ],
-	7: [ function (require, module, exports) {
-		function _defineProperties (target, props) {
+	}],
+	7: [function(require, module, exports) {
+		function _defineProperties(target, props) {
 			for (var i = 0; i < props.length; i++) {
-				var descriptor = props[ i ];
+				var descriptor = props[i];
 				descriptor.enumerable = descriptor.enumerable || false;
 				descriptor.configurable = true;
 				if ("value" in descriptor) descriptor.writable = true;
@@ -141,7 +141,7 @@
 			}
 		}
 
-		function _createClass (Constructor, protoProps, staticProps) {
+		function _createClass(Constructor, protoProps, staticProps) {
 			if (protoProps) _defineProperties(Constructor.prototype, protoProps);
 			if (staticProps) _defineProperties(Constructor, staticProps);
 			Object.defineProperty(Constructor, "prototype", {
@@ -150,10 +150,10 @@
 			return Constructor;
 		}
 
-		module.exports = _createClass, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	8: [ function (require, module, exports) {
-		function _defineProperty (obj, key, value) {
+		module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	8: [function(require, module, exports) {
+		function _defineProperty(obj, key, value) {
 			if (key in obj) {
 				Object.defineProperty(obj, key, {
 					value: value,
@@ -162,28 +162,28 @@
 					writable: true
 				});
 			} else {
-				obj[ key ] = value;
+				obj[key] = value;
 			}
 
 			return obj;
 		}
 
-		module.exports = _defineProperty, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	9: [ function (require, module, exports) {
-		function _getPrototypeOf (o) {
-			module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf (o) {
+		module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	9: [function(require, module, exports) {
+		function _getPrototypeOf(o) {
+			module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
 				return o.__proto__ || Object.getPrototypeOf(o);
-			}, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+			}, module.exports.__esModule = true, module.exports["default"] = module.exports;
 			return _getPrototypeOf(o);
 		}
 
-		module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	10: [ function (require, module, exports) {
+		module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	10: [function(require, module, exports) {
 		var setPrototypeOf = require("./setPrototypeOf.js");
 
-		function _inherits (subClass, superClass) {
+		function _inherits(subClass, superClass) {
 			if (typeof superClass !== "function" && superClass !== null) {
 				throw new TypeError("Super expression must either be null or a function");
 			}
@@ -201,45 +201,45 @@
 			if (superClass) setPrototypeOf(subClass, superClass);
 		}
 
-		module.exports = _inherits, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+		module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	}, {
 		"./setPrototypeOf.js": 17
-	} ],
-	11: [ function (require, module, exports) {
-		function _interopRequireDefault (obj) {
+	}],
+	11: [function(require, module, exports) {
+		function _interopRequireDefault(obj) {
 			return obj && obj.__esModule ? obj : {
 				"default": obj
 			};
 		}
 
-		module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	12: [ function (require, module, exports) {
-		function _isNativeFunction (fn) {
+		module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	12: [function(require, module, exports) {
+		function _isNativeFunction(fn) {
 			return Function.toString.call(fn).indexOf("[native code]") !== -1;
 		}
 
-		module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	13: [ function (require, module, exports) {
-		function _isNativeReflectConstruct () {
+		module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	13: [function(require, module, exports) {
+		function _isNativeReflectConstruct() {
 			if (typeof Reflect === "undefined" || !Reflect.construct) return false;
 			if (Reflect.construct.sham) return false;
 			if (typeof Proxy === "function") return true;
 
 			try {
-				Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () { }));
+				Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {}));
 				return true;
 			} catch (e) {
 				return false;
 			}
 		}
 
-		module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	14: [ function (require, module, exports) {
-		function _iterableToArrayLimit (arr, i) {
-			var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[ Symbol.iterator ] || arr[ "@@iterator" ];
+		module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	14: [function(require, module, exports) {
+		function _iterableToArrayLimit(arr, i) {
+			var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
 
 			if (_i == null) return;
 			var _arr = [];
@@ -259,7 +259,7 @@
 				_e = err;
 			} finally {
 				try {
-					if (!_n && _i[ "return" ] != null) _i[ "return" ]();
+					if (!_n && _i["return"] != null) _i["return"]();
 				} finally {
 					if (_d) throw _e;
 				}
@@ -268,21 +268,21 @@
 			return _arr;
 		}
 
-		module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	15: [ function (require, module, exports) {
-		function _nonIterableRest () {
+		module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	15: [function(require, module, exports) {
+		function _nonIterableRest() {
 			throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 		}
 
-		module.exports = _nonIterableRest, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	16: [ function (require, module, exports) {
-		var _typeof = require("./typeof.js")[ "default" ];
+		module.exports = _nonIterableRest, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	16: [function(require, module, exports) {
+		var _typeof = require("./typeof.js")["default"];
 
 		var assertThisInitialized = require("./assertThisInitialized.js");
 
-		function _possibleConstructorReturn (self, call) {
+		function _possibleConstructorReturn(self, call) {
 			if (call && (_typeof(call) === "object" || typeof call === "function")) {
 				return call;
 			} else if (call !== void 0) {
@@ -292,23 +292,23 @@
 			return assertThisInitialized(self);
 		}
 
-		module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+		module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	}, {
 		"./assertThisInitialized.js": 3,
 		"./typeof.js": 19
-	} ],
-	17: [ function (require, module, exports) {
-		function _setPrototypeOf (o, p) {
-			module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf (o, p) {
+	}],
+	17: [function(require, module, exports) {
+		function _setPrototypeOf(o, p) {
+			module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
 				o.__proto__ = p;
 				return o;
-			}, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+			}, module.exports.__esModule = true, module.exports["default"] = module.exports;
 			return _setPrototypeOf(o, p);
 		}
 
-		module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	18: [ function (require, module, exports) {
+		module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	18: [function(require, module, exports) {
 		var arrayWithHoles = require("./arrayWithHoles.js");
 
 		var iterableToArrayLimit = require("./iterableToArrayLimit.js");
@@ -317,34 +317,34 @@
 
 		var nonIterableRest = require("./nonIterableRest.js");
 
-		function _slicedToArray (arr, i) {
+		function _slicedToArray(arr, i) {
 			return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
 		}
 
-		module.exports = _slicedToArray, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+		module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	}, {
 		"./arrayWithHoles.js": 2,
 		"./iterableToArrayLimit.js": 14,
 		"./nonIterableRest.js": 15,
 		"./unsupportedIterableToArray.js": 20
-	} ],
-	19: [ function (require, module, exports) {
-		function _typeof (obj) {
+	}],
+	19: [function(require, module, exports) {
+		function _typeof(obj) {
 			"@babel/helpers - typeof";
 
-			return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+			return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
 				return typeof obj;
-			} : function (obj) {
+			} : function(obj) {
 				return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-			}, module.exports.__esModule = true, module.exports[ "default" ] = module.exports), _typeof(obj);
+			}, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
 		}
 
-		module.exports = _typeof, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
-	}, {} ],
-	20: [ function (require, module, exports) {
+		module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
+	}, {}],
+	20: [function(require, module, exports) {
 		var arrayLikeToArray = require("./arrayLikeToArray.js");
 
-		function _unsupportedIterableToArray (o, minLen) {
+		function _unsupportedIterableToArray(o, minLen) {
 			if (!o) return;
 			if (typeof o === "string") return arrayLikeToArray(o, minLen);
 			var n = Object.prototype.toString.call(o).slice(8, -1);
@@ -353,11 +353,11 @@
 			if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
 		}
 
-		module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+		module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	}, {
 		"./arrayLikeToArray.js": 1
-	} ],
-	21: [ function (require, module, exports) {
+	}],
+	21: [function(require, module, exports) {
 		var getPrototypeOf = require("./getPrototypeOf.js");
 
 		var setPrototypeOf = require("./setPrototypeOf.js");
@@ -366,10 +366,10 @@
 
 		var construct = require("./construct.js");
 
-		function _wrapNativeSuper (Class) {
+		function _wrapNativeSuper(Class) {
 			var _cache = typeof Map === "function" ? new Map() : undefined;
 
-			module.exports = _wrapNativeSuper = function _wrapNativeSuper (Class) {
+			module.exports = _wrapNativeSuper = function _wrapNativeSuper(Class) {
 				if (Class === null || !isNativeFunction(Class)) return Class;
 
 				if (typeof Class !== "function") {
@@ -382,7 +382,7 @@
 					_cache.set(Class, Wrapper);
 				}
 
-				function Wrapper () {
+				function Wrapper() {
 					return construct(Class, arguments, getPrototypeOf(this).constructor);
 				}
 
@@ -395,18 +395,18 @@
 					}
 				});
 				return setPrototypeOf(Wrapper, Class);
-			}, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+			}, module.exports.__esModule = true, module.exports["default"] = module.exports;
 			return _wrapNativeSuper(Class);
 		}
 
-		module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.exports[ "default" ] = module.exports;
+		module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	}, {
 		"./construct.js": 6,
 		"./getPrototypeOf.js": 9,
 		"./isNativeFunction.js": 12,
 		"./setPrototypeOf.js": 17
-	} ],
-	22: [ function (require, module, exports) {
+	}],
+	22: [function(require, module, exports) {
 		/**
 		 * Copyright (c) 2014-present, Facebook, Inc.
 		 *
@@ -414,7 +414,7 @@
 		 * LICENSE file in the root directory of this source tree.
 		 */
 
-		var runtime = (function (exports) {
+		var runtime = (function(exports) {
 			"use strict";
 
 			var Op = Object.prototype;
@@ -425,25 +425,25 @@
 			var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
 			var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
 
-			function define (obj, key, value) {
+			function define(obj, key, value) {
 				Object.defineProperty(obj, key, {
 					value: value,
 					enumerable: true,
 					configurable: true,
 					writable: true
 				});
-				return obj[ key ];
+				return obj[key];
 			}
 			try {
 				// IE 8 has a broken Object.defineProperty that only works on DOM objects.
 				define({}, "");
 			} catch (err) {
-				define = function (obj, key, value) {
-					return obj[ key ] = value;
+				define = function(obj, key, value) {
+					return obj[key] = value;
 				};
 			}
 
-			function wrap (innerFn, outerFn, self, tryLocsList) {
+			function wrap(innerFn, outerFn, self, tryLocsList) {
 				// If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
 				var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
 				var generator = Object.create(protoGenerator.prototype);
@@ -467,7 +467,7 @@
 			// in every case, so we don't have to touch the arguments object. The
 			// only additional allocation required is the completion record, which
 			// has a stable shape and so hopefully should be cheap to allocate.
-			function tryCatch (fn, obj, arg) {
+			function tryCatch(fn, obj, arg) {
 				try {
 					return {
 						type: "normal",
@@ -494,16 +494,16 @@
 			// .constructor.prototype properties for functions that return Generator
 			// objects. For full spec compliance, you may wish to configure your
 			// minifier not to mangle the names of these two functions.
-			function Generator () { }
+			function Generator() {}
 
-			function GeneratorFunction () { }
+			function GeneratorFunction() {}
 
-			function GeneratorFunctionPrototype () { }
+			function GeneratorFunctionPrototype() {}
 
 			// This is a polyfill for %IteratorPrototype% for environments that
 			// don't natively support it.
 			var IteratorPrototype = {};
-			define(IteratorPrototype, iteratorSymbol, function () {
+			define(IteratorPrototype, iteratorSymbol, function() {
 				return this;
 			});
 
@@ -530,15 +530,15 @@
 
 			// Helper for defining the .next, .throw, and .return methods of the
 			// Iterator interface in terms of a single ._invoke method.
-			function defineIteratorMethods (prototype) {
-				[ "next", "throw", "return" ].forEach(function (method) {
-					define(prototype, method, function (arg) {
+			function defineIteratorMethods(prototype) {
+				["next", "throw", "return"].forEach(function(method) {
+					define(prototype, method, function(arg) {
 						return this._invoke(method, arg);
 					});
 				});
 			}
 
-			exports.isGeneratorFunction = function (genFun) {
+			exports.isGeneratorFunction = function(genFun) {
 				var ctor = typeof genFun === "function" && genFun.constructor;
 				return ctor ?
 					ctor === GeneratorFunction ||
@@ -548,7 +548,7 @@
 					false;
 			};
 
-			exports.mark = function (genFun) {
+			exports.mark = function(genFun) {
 				if (Object.setPrototypeOf) {
 					Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
 				} else {
@@ -563,15 +563,15 @@
 			// `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
 			// `hasOwn.call(value, "__await")` to determine if the yielded value is
 			// meant to be awaited.
-			exports.awrap = function (arg) {
+			exports.awrap = function(arg) {
 				return {
 					__await: arg
 				};
 			};
 
-			function AsyncIterator (generator, PromiseImpl) {
-				function invoke (method, arg, resolve, reject) {
-					var record = tryCatch(generator[ method ], generator, arg);
+			function AsyncIterator(generator, PromiseImpl) {
+				function invoke(method, arg, resolve, reject) {
+					var record = tryCatch(generator[method], generator, arg);
 					if (record.type === "throw") {
 						reject(record.arg);
 					} else {
@@ -580,20 +580,20 @@
 						if (value &&
 							typeof value === "object" &&
 							hasOwn.call(value, "__await")) {
-							return PromiseImpl.resolve(value.__await).then(function (value) {
+							return PromiseImpl.resolve(value.__await).then(function(value) {
 								invoke("next", value, resolve, reject);
-							}, function (err) {
+							}, function(err) {
 								invoke("throw", err, resolve, reject);
 							});
 						}
 
-						return PromiseImpl.resolve(value).then(function (unwrapped) {
+						return PromiseImpl.resolve(value).then(function(unwrapped) {
 							// When a yielded Promise is resolved, its final value becomes
 							// the .value of the Promise<{value,done}> result for the
 							// current iteration.
 							result.value = unwrapped;
 							resolve(result);
-						}, function (error) {
+						}, function(error) {
 							// If a rejected Promise was yielded, throw the rejection back
 							// into the async generator function so it can be handled there.
 							return invoke("throw", error, resolve, reject);
@@ -603,9 +603,9 @@
 
 				var previousPromise;
 
-				function enqueue (method, arg) {
-					function callInvokeWithMethodAndArg () {
-						return new PromiseImpl(function (resolve, reject) {
+				function enqueue(method, arg) {
+					function callInvokeWithMethodAndArg() {
+						return new PromiseImpl(function(resolve, reject) {
 							invoke(method, arg, resolve, reject);
 						});
 					}
@@ -637,7 +637,7 @@
 			}
 
 			defineIteratorMethods(AsyncIterator.prototype);
-			define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
+			define(AsyncIterator.prototype, asyncIteratorSymbol, function() {
 				return this;
 			});
 			exports.AsyncIterator = AsyncIterator;
@@ -645,7 +645,7 @@
 			// Note that simple async functions are implemented on top of
 			// AsyncIterator objects; they just return a Promise for the value of
 			// the final result produced by the iterator.
-			exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+			exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
 				if (PromiseImpl === void 0) PromiseImpl = Promise;
 
 				var iter = new AsyncIterator(
@@ -656,15 +656,15 @@
 				return exports.isGeneratorFunction(outerFn) ?
 					iter // If outerFn is a generator, return the full iterator.
 					:
-					iter.next().then(function (result) {
+					iter.next().then(function(result) {
 						return result.done ? result.value : iter.next();
 					});
 			};
 
-			function makeInvokeMethod (innerFn, self, context) {
+			function makeInvokeMethod(innerFn, self, context) {
 				var state = GenStateSuspendedStart;
 
-				return function invoke (method, arg) {
+				return function invoke(method, arg) {
 					if (state === GenStateExecuting) {
 						throw new Error("Generator is already running");
 					}
@@ -743,8 +743,8 @@
 			// result, either by returning a { value, done } result from the
 			// delegate iterator, or by modifying context.method and context.arg,
 			// setting context.delegate to null, and returning the ContinueSentinel.
-			function maybeInvokeDelegate (delegate, context) {
-				var method = delegate.iterator[ context.method ];
+			function maybeInvokeDelegate(delegate, context) {
+				var method = delegate.iterator[context.method];
 				if (method === undefined) {
 					// A .throw or .return when the delegate iterator has no .throw
 					// method always terminates the yield* loop.
@@ -752,7 +752,7 @@
 
 					if (context.method === "throw") {
 						// Note: ["return"] must be used for ES3 parsing compatibility.
-						if (delegate.iterator[ "return" ]) {
+						if (delegate.iterator["return"]) {
 							// If the delegate iterator has a return method, give it a
 							// chance to clean up.
 							context.method = "return";
@@ -795,7 +795,7 @@
 				if (info.done) {
 					// Assign the result of the finished delegate to the temporary
 					// variable specified by delegate.resultName (see delegateYield).
-					context[ delegate.resultName ] = info.value;
+					context[delegate.resultName] = info.value;
 
 					// Resume execution at the desired location (see delegateYield).
 					context.next = delegate.nextLoc;
@@ -833,50 +833,50 @@
 			// iterator prototype chain incorrectly implement this, causing the Generator
 			// object to not be returned from this call. This ensures that doesn't happen.
 			// See https://github.com/facebook/regenerator/issues/274 for more details.
-			define(Gp, iteratorSymbol, function () {
+			define(Gp, iteratorSymbol, function() {
 				return this;
 			});
 
-			define(Gp, "toString", function () {
+			define(Gp, "toString", function() {
 				return "[object Generator]";
 			});
 
-			function pushTryEntry (locs) {
+			function pushTryEntry(locs) {
 				var entry = {
-					tryLoc: locs[ 0 ]
+					tryLoc: locs[0]
 				};
 
 				if (1 in locs) {
-					entry.catchLoc = locs[ 1 ];
+					entry.catchLoc = locs[1];
 				}
 
 				if (2 in locs) {
-					entry.finallyLoc = locs[ 2 ];
-					entry.afterLoc = locs[ 3 ];
+					entry.finallyLoc = locs[2];
+					entry.afterLoc = locs[3];
 				}
 
 				this.tryEntries.push(entry);
 			}
 
-			function resetTryEntry (entry) {
+			function resetTryEntry(entry) {
 				var record = entry.completion || {};
 				record.type = "normal";
 				delete record.arg;
 				entry.completion = record;
 			}
 
-			function Context (tryLocsList) {
+			function Context(tryLocsList) {
 				// The root entry object (effectively a try statement without a catch
 				// or a finally block) gives us a place to store values thrown from
 				// locations where there is no enclosing try statement.
-				this.tryEntries = [ {
+				this.tryEntries = [{
 					tryLoc: "root"
-				} ];
+				}];
 				tryLocsList.forEach(pushTryEntry, this);
 				this.reset(true);
 			}
 
-			exports.keys = function (object) {
+			exports.keys = function(object) {
 				var keys = [];
 				for (var key in object) {
 					keys.push(key);
@@ -885,7 +885,7 @@
 
 				// Rather than returning an object with a next method, we keep
 				// things simple and return the next function itself.
-				return function next () {
+				return function next() {
 					while (keys.length) {
 						var key = keys.pop();
 						if (key in object) {
@@ -903,9 +903,9 @@
 				};
 			};
 
-			function values (iterable) {
+			function values(iterable) {
 				if (iterable) {
-					var iteratorMethod = iterable[ iteratorSymbol ];
+					var iteratorMethod = iterable[iteratorSymbol];
 					if (iteratorMethod) {
 						return iteratorMethod.call(iterable);
 					}
@@ -916,10 +916,10 @@
 
 					if (!isNaN(iterable.length)) {
 						var i = -1,
-							next = function next () {
+							next = function next() {
 								while (++i < iterable.length) {
 									if (hasOwn.call(iterable, i)) {
-										next.value = iterable[ i ];
+										next.value = iterable[i];
 										next.done = false;
 										return next;
 									}
@@ -942,7 +942,7 @@
 			}
 			exports.values = values;
 
-			function doneResult () {
+			function doneResult() {
 				return {
 					value: undefined,
 					done: true
@@ -952,7 +952,7 @@
 			Context.prototype = {
 				constructor: Context,
 
-				reset: function (skipTempReset) {
+				reset: function(skipTempReset) {
 					this.prev = 0;
 					this.next = 0;
 					// Resetting context._sent for legacy support of Babel's
@@ -972,16 +972,16 @@
 							if (name.charAt(0) === "t" &&
 								hasOwn.call(this, name) &&
 								!isNaN(+name.slice(1))) {
-								this[ name ] = undefined;
+								this[name] = undefined;
 							}
 						}
 					}
 				},
 
-				stop: function () {
+				stop: function() {
 					this.done = true;
 
-					var rootEntry = this.tryEntries[ 0 ];
+					var rootEntry = this.tryEntries[0];
 					var rootRecord = rootEntry.completion;
 					if (rootRecord.type === "throw") {
 						throw rootRecord.arg;
@@ -990,14 +990,14 @@
 					return this.rval;
 				},
 
-				dispatchException: function (exception) {
+				dispatchException: function(exception) {
 					if (this.done) {
 						throw exception;
 					}
 
 					var context = this;
 
-					function handle (loc, caught) {
+					function handle(loc, caught) {
 						record.type = "throw";
 						record.arg = exception;
 						context.next = loc;
@@ -1013,7 +1013,7 @@
 					}
 
 					for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-						var entry = this.tryEntries[ i ];
+						var entry = this.tryEntries[i];
 						var record = entry.completion;
 
 						if (entry.tryLoc === "root") {
@@ -1051,9 +1051,9 @@
 					}
 				},
 
-				abrupt: function (type, arg) {
+				abrupt: function(type, arg) {
 					for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-						var entry = this.tryEntries[ i ];
+						var entry = this.tryEntries[i];
 						if (entry.tryLoc <= this.prev &&
 							hasOwn.call(entry, "finallyLoc") &&
 							this.prev < entry.finallyLoc) {
@@ -1085,7 +1085,7 @@
 					return this.complete(record);
 				},
 
-				complete: function (record, afterLoc) {
+				complete: function(record, afterLoc) {
 					if (record.type === "throw") {
 						throw record.arg;
 					}
@@ -1104,9 +1104,9 @@
 					return ContinueSentinel;
 				},
 
-				finish: function (finallyLoc) {
+				finish: function(finallyLoc) {
 					for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-						var entry = this.tryEntries[ i ];
+						var entry = this.tryEntries[i];
 						if (entry.finallyLoc === finallyLoc) {
 							this.complete(entry.completion, entry.afterLoc);
 							resetTryEntry(entry);
@@ -1115,9 +1115,9 @@
 					}
 				},
 
-				"catch": function (tryLoc) {
+				"catch": function(tryLoc) {
 					for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-						var entry = this.tryEntries[ i ];
+						var entry = this.tryEntries[i];
 						if (entry.tryLoc === tryLoc) {
 							var record = entry.completion;
 							if (record.type === "throw") {
@@ -1133,7 +1133,7 @@
 					throw new Error("illegal catch attempt");
 				},
 
-				delegateYield: function (iterable, resultName, nextLoc) {
+				delegateYield: function(iterable, resultName, nextLoc) {
 					this.delegate = {
 						iterator: values(iterable),
 						resultName: resultName,
@@ -1184,2222 +1184,14 @@
 			}
 		}
 
-	}, {} ],
-	23: [ function (require, module, exports) {
+	}, {}],
+	23: [function(require, module, exports) {
 		module.exports = require("regenerator-runtime");
 
 	}, {
 		"regenerator-runtime": 22
-	} ],
-	24: [ function (require, module, exports) {
-		module.exports = require('./lib/axios');
-	}, {
-		"./lib/axios": 26
-	} ],
-	25: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./../utils');
-		var settle = require('./../core/settle');
-		var cookies = require('./../helpers/cookies');
-		var buildURL = require('./../helpers/buildURL');
-		var buildFullPath = require('../core/buildFullPath');
-		var parseHeaders = require('./../helpers/parseHeaders');
-		var isURLSameOrigin = require('./../helpers/isURLSameOrigin');
-		var createError = require('../core/createError');
-		var transitionalDefaults = require('../defaults/transitional');
-		var Cancel = require('../cancel/Cancel');
-
-		module.exports = function xhrAdapter (config) {
-			return new Promise(function dispatchXhrRequest (resolve, reject) {
-				var requestData = config.data;
-				var requestHeaders = config.headers;
-				var responseType = config.responseType;
-				var onCanceled;
-
-				function done () {
-					if (config.cancelToken) {
-						config.cancelToken.unsubscribe(onCanceled);
-					}
-
-					if (config.signal) {
-						config.signal.removeEventListener('abort', onCanceled);
-					}
-				}
-
-				if (utils.isFormData(requestData)) {
-					delete requestHeaders[ 'Content-Type' ]; // Let the browser set it
-				}
-
-				var request = new XMLHttpRequest();
-
-				// HTTP basic authentication
-				if (config.auth) {
-					var username = config.auth.username || '';
-					var password = config.auth.password ? unescape(encodeURIComponent(config.auth.password)) : '';
-					requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
-				}
-
-				var fullPath = buildFullPath(config.baseURL, config.url);
-				request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);
-
-				// Set the request timeout in MS
-				request.timeout = config.timeout;
-
-				function onloadend () {
-					if (!request) {
-						return;
-					}
-					// Prepare the response
-					var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
-					var responseData = !responseType || responseType === 'text' || responseType === 'json' ?
-						request.responseText : request.response;
-					var response = {
-						data: responseData,
-						status: request.status,
-						statusText: request.statusText,
-						headers: responseHeaders,
-						config: config,
-						request: request
-					};
-
-					settle(function _resolve (value) {
-						resolve(value);
-						done();
-					}, function _reject (err) {
-						reject(err);
-						done();
-					}, response);
-
-					// Clean up request
-					request = null;
-				}
-
-				if ('onloadend' in request) {
-					// Use onloadend if available
-					request.onloadend = onloadend;
-				} else {
-					// Listen for ready state to emulate onloadend
-					request.onreadystatechange = function handleLoad () {
-						if (!request || request.readyState !== 4) {
-							return;
-						}
-
-						// The request errored out and we didn't get a response, this will be
-						// handled by onerror instead
-						// With one exception: request that using file: protocol, most browsers
-						// will return status as 0 even though it's a successful request
-						if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
-							return;
-						}
-						// readystate handler is calling before onerror or ontimeout handlers,
-						// so we should call onloadend on the next 'tick'
-						setTimeout(onloadend);
-					};
-				}
-
-				// Handle browser request cancellation (as opposed to a manual cancellation)
-				request.onabort = function handleAbort () {
-					if (!request) {
-						return;
-					}
-
-					reject(createError('Request aborted', config, 'ECONNABORTED', request));
-
-					// Clean up request
-					request = null;
-				};
-
-				// Handle low level network errors
-				request.onerror = function handleError () {
-					// Real errors are hidden from us by the browser
-					// onerror should only fire if it's a network error
-					reject(createError('Network Error', config, null, request));
-
-					// Clean up request
-					request = null;
-				};
-
-				// Handle timeout
-				request.ontimeout = function handleTimeout () {
-					var timeoutErrorMessage = config.timeout ? 'timeout of ' + config.timeout + 'ms exceeded' : 'timeout exceeded';
-					var transitional = config.transitional || transitionalDefaults;
-					if (config.timeoutErrorMessage) {
-						timeoutErrorMessage = config.timeoutErrorMessage;
-					}
-					reject(createError(
-						timeoutErrorMessage,
-						config,
-						transitional.clarifyTimeoutError ? 'ETIMEDOUT' : 'ECONNABORTED',
-						request));
-
-					// Clean up request
-					request = null;
-				};
-
-				// Add xsrf header
-				// This is only done if running in a standard browser environment.
-				// Specifically not if we're in a web worker, or react-native.
-				if (utils.isStandardBrowserEnv()) {
-					// Add xsrf header
-					var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
-						cookies.read(config.xsrfCookieName) :
-						undefined;
-
-					if (xsrfValue) {
-						requestHeaders[ config.xsrfHeaderName ] = xsrfValue;
-					}
-				}
-
-				// Add headers to the request
-				if ('setRequestHeader' in request) {
-					utils.forEach(requestHeaders, function setRequestHeader (val, key) {
-						if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
-							// Remove Content-Type if data is undefined
-							delete requestHeaders[ key ];
-						} else {
-							// Otherwise add header to the request
-							request.setRequestHeader(key, val);
-						}
-					});
-				}
-
-				// Add withCredentials to request if needed
-				if (!utils.isUndefined(config.withCredentials)) {
-					request.withCredentials = !!config.withCredentials;
-				}
-
-				// Add responseType to request if needed
-				if (responseType && responseType !== 'json') {
-					request.responseType = config.responseType;
-				}
-
-				// Handle progress if needed
-				if (typeof config.onDownloadProgress === 'function') {
-					request.addEventListener('progress', config.onDownloadProgress);
-				}
-
-				// Not all browsers support upload events
-				if (typeof config.onUploadProgress === 'function' && request.upload) {
-					request.upload.addEventListener('progress', config.onUploadProgress);
-				}
-
-				if (config.cancelToken || config.signal) {
-					// Handle cancellation
-					// eslint-disable-next-line func-names
-					onCanceled = function (cancel) {
-						if (!request) {
-							return;
-						}
-						reject(!cancel || (cancel && cancel.type) ? new Cancel('canceled') : cancel);
-						request.abort();
-						request = null;
-					};
-
-					config.cancelToken && config.cancelToken.subscribe(onCanceled);
-					if (config.signal) {
-						config.signal.aborted ? onCanceled() : config.signal.addEventListener('abort', onCanceled);
-					}
-				}
-
-				if (!requestData) {
-					requestData = null;
-				}
-
-				// Send the request
-				request.send(requestData);
-			});
-		};
-
-	}, {
-		"../cancel/Cancel": 27,
-		"../core/buildFullPath": 32,
-		"../core/createError": 33,
-		"../defaults/transitional": 40,
-		"./../core/settle": 37,
-		"./../helpers/buildURL": 43,
-		"./../helpers/cookies": 45,
-		"./../helpers/isURLSameOrigin": 48,
-		"./../helpers/parseHeaders": 50,
-		"./../utils": 53
-	} ],
-	26: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./utils');
-		var bind = require('./helpers/bind');
-		var Axios = require('./core/Axios');
-		var mergeConfig = require('./core/mergeConfig');
-		var defaults = require('./defaults');
-
-		/**
-		 * Create an instance of Axios
-		 *
-		 * @param {Object} defaultConfig The default config for the instance
-		 * @return {Axios} A new instance of Axios
-		 */
-		function createInstance (defaultConfig) {
-			var context = new Axios(defaultConfig);
-			var instance = bind(Axios.prototype.request, context);
-
-			// Copy axios.prototype to instance
-			utils.extend(instance, Axios.prototype, context);
-
-			// Copy context to instance
-			utils.extend(instance, context);
-
-			// Factory for creating new instances
-			instance.create = function create (instanceConfig) {
-				return createInstance(mergeConfig(defaultConfig, instanceConfig));
-			};
-
-			return instance;
-		}
-
-		// Create the default instance to be exported
-		var axios = createInstance(defaults);
-
-		// Expose Axios class to allow class inheritance
-		axios.Axios = Axios;
-
-		// Expose Cancel & CancelToken
-		axios.Cancel = require('./cancel/Cancel');
-		axios.CancelToken = require('./cancel/CancelToken');
-		axios.isCancel = require('./cancel/isCancel');
-		axios.VERSION = require('./env/data').version;
-
-		// Expose all/spread
-		axios.all = function all (promises) {
-			return Promise.all(promises);
-		};
-		axios.spread = require('./helpers/spread');
-
-		// Expose isAxiosError
-		axios.isAxiosError = require('./helpers/isAxiosError');
-
-		module.exports = axios;
-
-		// Allow use of default import syntax in TypeScript
-		module.exports.default = axios;
-
-	}, {
-		"./cancel/Cancel": 27,
-		"./cancel/CancelToken": 28,
-		"./cancel/isCancel": 29,
-		"./core/Axios": 30,
-		"./core/mergeConfig": 36,
-		"./defaults": 39,
-		"./env/data": 41,
-		"./helpers/bind": 42,
-		"./helpers/isAxiosError": 47,
-		"./helpers/spread": 51,
-		"./utils": 53
-	} ],
-	27: [ function (require, module, exports) {
-		'use strict';
-
-		/**
-		 * A `Cancel` is an object that is thrown when an operation is canceled.
-		 *
-		 * @class
-		 * @param {string=} message The message.
-		 */
-		function Cancel (message) {
-			this.message = message;
-		}
-
-		Cancel.prototype.toString = function toString () {
-			return 'Cancel' + (this.message ? ': ' + this.message : '');
-		};
-
-		Cancel.prototype.__CANCEL__ = true;
-
-		module.exports = Cancel;
-
-	}, {} ],
-	28: [ function (require, module, exports) {
-		'use strict';
-
-		var Cancel = require('./Cancel');
-
-		/**
-		 * A `CancelToken` is an object that can be used to request cancellation of an operation.
-		 *
-		 * @class
-		 * @param {Function} executor The executor function.
-		 */
-		function CancelToken (executor) {
-			if (typeof executor !== 'function') {
-				throw new TypeError('executor must be a function.');
-			}
-
-			var resolvePromise;
-
-			this.promise = new Promise(function promiseExecutor (resolve) {
-				resolvePromise = resolve;
-			});
-
-			var token = this;
-
-			// eslint-disable-next-line func-names
-			this.promise.then(function (cancel) {
-				if (!token._listeners) return;
-
-				var i;
-				var l = token._listeners.length;
-
-				for (i = 0; i < l; i++) {
-					token._listeners[ i ](cancel);
-				}
-				token._listeners = null;
-			});
-
-			// eslint-disable-next-line func-names
-			this.promise.then = function (onfulfilled) {
-				var _resolve;
-				// eslint-disable-next-line func-names
-				var promise = new Promise(function (resolve) {
-					token.subscribe(resolve);
-					_resolve = resolve;
-				}).then(onfulfilled);
-
-				promise.cancel = function reject () {
-					token.unsubscribe(_resolve);
-				};
-
-				return promise;
-			};
-
-			executor(function cancel (message) {
-				if (token.reason) {
-					// Cancellation has already been requested
-					return;
-				}
-
-				token.reason = new Cancel(message);
-				resolvePromise(token.reason);
-			});
-		}
-
-		/**
-		 * Throws a `Cancel` if cancellation has been requested.
-		 */
-		CancelToken.prototype.throwIfRequested = function throwIfRequested () {
-			if (this.reason) {
-				throw this.reason;
-			}
-		};
-
-		/**
-		 * Subscribe to the cancel signal
-		 */
-
-		CancelToken.prototype.subscribe = function subscribe (listener) {
-			if (this.reason) {
-				listener(this.reason);
-				return;
-			}
-
-			if (this._listeners) {
-				this._listeners.push(listener);
-			} else {
-				this._listeners = [ listener ];
-			}
-		};
-
-		/**
-		 * Unsubscribe from the cancel signal
-		 */
-
-		CancelToken.prototype.unsubscribe = function unsubscribe (listener) {
-			if (!this._listeners) {
-				return;
-			}
-			var index = this._listeners.indexOf(listener);
-			if (index !== -1) {
-				this._listeners.splice(index, 1);
-			}
-		};
-
-		/**
-		 * Returns an object that contains a new `CancelToken` and a function that, when called,
-		 * cancels the `CancelToken`.
-		 */
-		CancelToken.source = function source () {
-			var cancel;
-			var token = new CancelToken(function executor (c) {
-				cancel = c;
-			});
-			return {
-				token: token,
-				cancel: cancel
-			};
-		};
-
-		module.exports = CancelToken;
-
-	}, {
-		"./Cancel": 27
-	} ],
-	29: [ function (require, module, exports) {
-		'use strict';
-
-		module.exports = function isCancel (value) {
-			return !!(value && value.__CANCEL__);
-		};
-
-	}, {} ],
-	30: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./../utils');
-		var buildURL = require('../helpers/buildURL');
-		var InterceptorManager = require('./InterceptorManager');
-		var dispatchRequest = require('./dispatchRequest');
-		var mergeConfig = require('./mergeConfig');
-		var validator = require('../helpers/validator');
-
-		var validators = validator.validators;
-		/**
-		 * Create a new instance of Axios
-		 *
-		 * @param {Object} instanceConfig The default config for the instance
-		 */
-		function Axios (instanceConfig) {
-			this.defaults = instanceConfig;
-			this.interceptors = {
-				request: new InterceptorManager(),
-				response: new InterceptorManager()
-			};
-		}
-
-		/**
-		 * Dispatch a request
-		 *
-		 * @param {Object} config The config specific for this request (merged with this.defaults)
-		 */
-		Axios.prototype.request = function request (configOrUrl, config) {
-			/*eslint no-param-reassign:0*/
-			// Allow for axios('example/url'[, config]) a la fetch API
-			if (typeof configOrUrl === 'string') {
-				config = config || {};
-				config.url = configOrUrl;
-			} else {
-				config = configOrUrl || {};
-			}
-
-			config = mergeConfig(this.defaults, config);
-
-			// Set config.method
-			if (config.method) {
-				config.method = config.method.toLowerCase();
-			} else if (this.defaults.method) {
-				config.method = this.defaults.method.toLowerCase();
-			} else {
-				config.method = 'get';
-			}
-
-			var transitional = config.transitional;
-
-			if (transitional !== undefined) {
-				validator.assertOptions(transitional, {
-					silentJSONParsing: validators.transitional(validators.boolean),
-					forcedJSONParsing: validators.transitional(validators.boolean),
-					clarifyTimeoutError: validators.transitional(validators.boolean)
-				}, false);
-			}
-
-			// filter out skipped interceptors
-			var requestInterceptorChain = [];
-			var synchronousRequestInterceptors = true;
-			this.interceptors.request.forEach(function unshiftRequestInterceptors (interceptor) {
-				if (typeof interceptor.runWhen === 'function' && interceptor.runWhen(config) === false) {
-					return;
-				}
-
-				synchronousRequestInterceptors = synchronousRequestInterceptors && interceptor.synchronous;
-
-				requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);
-			});
-
-			var responseInterceptorChain = [];
-			this.interceptors.response.forEach(function pushResponseInterceptors (interceptor) {
-				responseInterceptorChain.push(interceptor.fulfilled, interceptor.rejected);
-			});
-
-			var promise;
-
-			if (!synchronousRequestInterceptors) {
-				var chain = [ dispatchRequest, undefined ];
-
-				Array.prototype.unshift.apply(chain, requestInterceptorChain);
-				chain = chain.concat(responseInterceptorChain);
-
-				promise = Promise.resolve(config);
-				while (chain.length) {
-					promise = promise.then(chain.shift(), chain.shift());
-				}
-
-				return promise;
-			}
-
-
-			var newConfig = config;
-			while (requestInterceptorChain.length) {
-				var onFulfilled = requestInterceptorChain.shift();
-				var onRejected = requestInterceptorChain.shift();
-				try {
-					newConfig = onFulfilled(newConfig);
-				} catch (error) {
-					onRejected(error);
-					break;
-				}
-			}
-
-			try {
-				promise = dispatchRequest(newConfig);
-			} catch (error) {
-				return Promise.reject(error);
-			}
-
-			while (responseInterceptorChain.length) {
-				promise = promise.then(responseInterceptorChain.shift(), responseInterceptorChain.shift());
-			}
-
-			return promise;
-		};
-
-		Axios.prototype.getUri = function getUri (config) {
-			config = mergeConfig(this.defaults, config);
-			return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\?/, '');
-		};
-
-		// Provide aliases for supported request methods
-		utils.forEach([ 'delete', 'get', 'head', 'options' ], function forEachMethodNoData (method) {
-			/*eslint func-names:0*/
-			Axios.prototype[ method ] = function (url, config) {
-				return this.request(mergeConfig(config || {}, {
-					method: method,
-					url: url,
-					data: (config || {}).data
-				}));
-			};
-		});
-
-		utils.forEach([ 'post', 'put', 'patch' ], function forEachMethodWithData (method) {
-			/*eslint func-names:0*/
-			Axios.prototype[ method ] = function (url, data, config) {
-				return this.request(mergeConfig(config || {}, {
-					method: method,
-					url: url,
-					data: data
-				}));
-			};
-		});
-
-		module.exports = Axios;
-
-	}, {
-		"../helpers/buildURL": 43,
-		"../helpers/validator": 52,
-		"./../utils": 53,
-		"./InterceptorManager": 31,
-		"./dispatchRequest": 34,
-		"./mergeConfig": 36
-	} ],
-	31: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./../utils');
-
-		function InterceptorManager () {
-			this.handlers = [];
-		}
-
-		/**
-		 * Add a new interceptor to the stack
-		 *
-		 * @param {Function} fulfilled The function to handle `then` for a `Promise`
-		 * @param {Function} rejected The function to handle `reject` for a `Promise`
-		 *
-		 * @return {Number} An ID used to remove interceptor later
-		 */
-		InterceptorManager.prototype.use = function use (fulfilled, rejected, options) {
-			this.handlers.push({
-				fulfilled: fulfilled,
-				rejected: rejected,
-				synchronous: options ? options.synchronous : false,
-				runWhen: options ? options.runWhen : null
-			});
-			return this.handlers.length - 1;
-		};
-
-		/**
-		 * Remove an interceptor from the stack
-		 *
-		 * @param {Number} id The ID that was returned by `use`
-		 */
-		InterceptorManager.prototype.eject = function eject (id) {
-			if (this.handlers[ id ]) {
-				this.handlers[ id ] = null;
-			}
-		};
-
-		/**
-		 * Iterate over all the registered interceptors
-		 *
-		 * This method is particularly useful for skipping over any
-		 * interceptors that may have become `null` calling `eject`.
-		 *
-		 * @param {Function} fn The function to call for each interceptor
-		 */
-		InterceptorManager.prototype.forEach = function forEach (fn) {
-			utils.forEach(this.handlers, function forEachHandler (h) {
-				if (h !== null) {
-					fn(h);
-				}
-			});
-		};
-
-		module.exports = InterceptorManager;
-
-	}, {
-		"./../utils": 53
-	} ],
-	32: [ function (require, module, exports) {
-		'use strict';
-
-		var isAbsoluteURL = require('../helpers/isAbsoluteURL');
-		var combineURLs = require('../helpers/combineURLs');
-
-		/**
-		 * Creates a new URL by combining the baseURL with the requestedURL,
-		 * only when the requestedURL is not already an absolute URL.
-		 * If the requestURL is absolute, this function returns the requestedURL untouched.
-		 *
-		 * @param {string} baseURL The base URL
-		 * @param {string} requestedURL Absolute or relative URL to combine
-		 * @returns {string} The combined full path
-		 */
-		module.exports = function buildFullPath (baseURL, requestedURL) {
-			if (baseURL && !isAbsoluteURL(requestedURL)) {
-				return combineURLs(baseURL, requestedURL);
-			}
-			return requestedURL;
-		};
-
-	}, {
-		"../helpers/combineURLs": 44,
-		"../helpers/isAbsoluteURL": 46
-	} ],
-	33: [ function (require, module, exports) {
-		'use strict';
-
-		var enhanceError = require('./enhanceError');
-
-		/**
-		 * Create an Error with the specified message, config, error code, request and response.
-		 *
-		 * @param {string} message The error message.
-		 * @param {Object} config The config.
-		 * @param {string} [code] The error code (for example, 'ECONNABORTED').
-		 * @param {Object} [request] The request.
-		 * @param {Object} [response] The response.
-		 * @returns {Error} The created error.
-		 */
-		module.exports = function createError (message, config, code, request, response) {
-			var error = new Error(message);
-			return enhanceError(error, config, code, request, response);
-		};
-
-	}, {
-		"./enhanceError": 35
-	} ],
-	34: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./../utils');
-		var transformData = require('./transformData');
-		var isCancel = require('../cancel/isCancel');
-		var defaults = require('../defaults');
-		var Cancel = require('../cancel/Cancel');
-
-		/**
-		 * Throws a `Cancel` if cancellation has been requested.
-		 */
-		function throwIfCancellationRequested (config) {
-			if (config.cancelToken) {
-				config.cancelToken.throwIfRequested();
-			}
-
-			if (config.signal && config.signal.aborted) {
-				throw new Cancel('canceled');
-			}
-		}
-
-		/**
-		 * Dispatch a request to the server using the configured adapter.
-		 *
-		 * @param {object} config The config that is to be used for the request
-		 * @returns {Promise} The Promise to be fulfilled
-		 */
-		module.exports = function dispatchRequest (config) {
-			throwIfCancellationRequested(config);
-
-			// Ensure headers exist
-			config.headers = config.headers || {};
-
-			// Transform request data
-			config.data = transformData.call(
-				config,
-				config.data,
-				config.headers,
-				config.transformRequest
-			);
-
-			// Flatten headers
-			config.headers = utils.merge(
-				config.headers.common || {},
-				config.headers[ config.method ] || {},
-				config.headers
-			);
-
-			utils.forEach(
-				[ 'delete', 'get', 'head', 'post', 'put', 'patch', 'common' ],
-				function cleanHeaderConfig (method) {
-					delete config.headers[ method ];
-				}
-			);
-
-			var adapter = config.adapter || defaults.adapter;
-
-			return adapter(config).then(function onAdapterResolution (response) {
-				throwIfCancellationRequested(config);
-
-				// Transform response data
-				response.data = transformData.call(
-					config,
-					response.data,
-					response.headers,
-					config.transformResponse
-				);
-
-				return response;
-			}, function onAdapterRejection (reason) {
-				if (!isCancel(reason)) {
-					throwIfCancellationRequested(config);
-
-					// Transform response data
-					if (reason && reason.response) {
-						reason.response.data = transformData.call(
-							config,
-							reason.response.data,
-							reason.response.headers,
-							config.transformResponse
-						);
-					}
-				}
-
-				return Promise.reject(reason);
-			});
-		};
-
-	}, {
-		"../cancel/Cancel": 27,
-		"../cancel/isCancel": 29,
-		"../defaults": 39,
-		"./../utils": 53,
-		"./transformData": 38
-	} ],
-	35: [ function (require, module, exports) {
-		'use strict';
-
-		/**
-		 * Update an Error with the specified config, error code, and response.
-		 *
-		 * @param {Error} error The error to update.
-		 * @param {Object} config The config.
-		 * @param {string} [code] The error code (for example, 'ECONNABORTED').
-		 * @param {Object} [request] The request.
-		 * @param {Object} [response] The response.
-		 * @returns {Error} The error.
-		 */
-		module.exports = function enhanceError (error, config, code, request, response) {
-			error.config = config;
-			if (code) {
-				error.code = code;
-			}
-
-			error.request = request;
-			error.response = response;
-			error.isAxiosError = true;
-
-			error.toJSON = function toJSON () {
-				return {
-					// Standard
-					message: this.message,
-					name: this.name,
-					// Microsoft
-					description: this.description,
-					number: this.number,
-					// Mozilla
-					fileName: this.fileName,
-					lineNumber: this.lineNumber,
-					columnNumber: this.columnNumber,
-					stack: this.stack,
-					// Axios
-					config: this.config,
-					code: this.code,
-					status: this.response && this.response.status ? this.response.status : null
-				};
-			};
-			return error;
-		};
-
-	}, {} ],
-	36: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('../utils');
-
-		/**
-		 * Config-specific merge-function which creates a new config-object
-		 * by merging two configuration objects together.
-		 *
-		 * @param {Object} config1
-		 * @param {Object} config2
-		 * @returns {Object} New object resulting from merging config2 to config1
-		 */
-		module.exports = function mergeConfig (config1, config2) {
-			// eslint-disable-next-line no-param-reassign
-			config2 = config2 || {};
-			var config = {};
-
-			function getMergedValue (target, source) {
-				if (utils.isPlainObject(target) && utils.isPlainObject(source)) {
-					return utils.merge(target, source);
-				} else if (utils.isPlainObject(source)) {
-					return utils.merge({}, source);
-				} else if (utils.isArray(source)) {
-					return source.slice();
-				}
-				return source;
-			}
-
-			// eslint-disable-next-line consistent-return
-			function mergeDeepProperties (prop) {
-				if (!utils.isUndefined(config2[ prop ])) {
-					return getMergedValue(config1[ prop ], config2[ prop ]);
-				} else if (!utils.isUndefined(config1[ prop ])) {
-					return getMergedValue(undefined, config1[ prop ]);
-				}
-			}
-
-			// eslint-disable-next-line consistent-return
-			function valueFromConfig2 (prop) {
-				if (!utils.isUndefined(config2[ prop ])) {
-					return getMergedValue(undefined, config2[ prop ]);
-				}
-			}
-
-			// eslint-disable-next-line consistent-return
-			function defaultToConfig2 (prop) {
-				if (!utils.isUndefined(config2[ prop ])) {
-					return getMergedValue(undefined, config2[ prop ]);
-				} else if (!utils.isUndefined(config1[ prop ])) {
-					return getMergedValue(undefined, config1[ prop ]);
-				}
-			}
-
-			// eslint-disable-next-line consistent-return
-			function mergeDirectKeys (prop) {
-				if (prop in config2) {
-					return getMergedValue(config1[ prop ], config2[ prop ]);
-				} else if (prop in config1) {
-					return getMergedValue(undefined, config1[ prop ]);
-				}
-			}
-
-			var mergeMap = {
-				'url': valueFromConfig2,
-				'method': valueFromConfig2,
-				'data': valueFromConfig2,
-				'baseURL': defaultToConfig2,
-				'transformRequest': defaultToConfig2,
-				'transformResponse': defaultToConfig2,
-				'paramsSerializer': defaultToConfig2,
-				'timeout': defaultToConfig2,
-				'timeoutMessage': defaultToConfig2,
-				'withCredentials': defaultToConfig2,
-				'adapter': defaultToConfig2,
-				'responseType': defaultToConfig2,
-				'xsrfCookieName': defaultToConfig2,
-				'xsrfHeaderName': defaultToConfig2,
-				'onUploadProgress': defaultToConfig2,
-				'onDownloadProgress': defaultToConfig2,
-				'decompress': defaultToConfig2,
-				'maxContentLength': defaultToConfig2,
-				'maxBodyLength': defaultToConfig2,
-				'transport': defaultToConfig2,
-				'httpAgent': defaultToConfig2,
-				'httpsAgent': defaultToConfig2,
-				'cancelToken': defaultToConfig2,
-				'socketPath': defaultToConfig2,
-				'responseEncoding': defaultToConfig2,
-				'validateStatus': mergeDirectKeys
-			};
-
-			utils.forEach(Object.keys(config1).concat(Object.keys(config2)), function computeConfigValue (prop) {
-				var merge = mergeMap[ prop ] || mergeDeepProperties;
-				var configValue = merge(prop);
-				(utils.isUndefined(configValue) && merge !== mergeDirectKeys) || (config[ prop ] = configValue);
-			});
-
-			return config;
-		};
-
-	}, {
-		"../utils": 53
-	} ],
-	37: [ function (require, module, exports) {
-		'use strict';
-
-		var createError = require('./createError');
-
-		/**
-		 * Resolve or reject a Promise based on response status.
-		 *
-		 * @param {Function} resolve A function that resolves the promise.
-		 * @param {Function} reject A function that rejects the promise.
-		 * @param {object} response The response.
-		 */
-		module.exports = function settle (resolve, reject, response) {
-			var validateStatus = response.config.validateStatus;
-			if (!response.status || !validateStatus || validateStatus(response.status)) {
-				resolve(response);
-			} else {
-				reject(createError(
-					'Request failed with status code ' + response.status,
-					response.config,
-					null,
-					response.request,
-					response
-				));
-			}
-		};
-
-	}, {
-		"./createError": 33
-	} ],
-	38: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./../utils');
-		var defaults = require('../defaults');
-
-		/**
-		 * Transform the data for a request or a response
-		 *
-		 * @param {Object|String} data The data to be transformed
-		 * @param {Array} headers The headers for the request or response
-		 * @param {Array|Function} fns A single function or Array of functions
-		 * @returns {*} The resulting transformed data
-		 */
-		module.exports = function transformData (data, headers, fns) {
-			var context = this || defaults;
-			/*eslint no-param-reassign:0*/
-			utils.forEach(fns, function transform (fn) {
-				data = fn.call(context, data, headers);
-			});
-
-			return data;
-		};
-
-	}, {
-		"../defaults": 39,
-		"./../utils": 53
-	} ],
-	39: [ function (require, module, exports) {
-		(function (process) {
-			(function () {
-				'use strict';
-
-				var utils = require('../utils');
-				var normalizeHeaderName = require('../helpers/normalizeHeaderName');
-				var enhanceError = require('../core/enhanceError');
-				var transitionalDefaults = require('./transitional');
-
-				var DEFAULT_CONTENT_TYPE = {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				};
-
-				function setContentTypeIfUnset (headers, value) {
-					if (!utils.isUndefined(headers) && utils.isUndefined(headers[ 'Content-Type' ])) {
-						headers[ 'Content-Type' ] = value;
-					}
-				}
-
-				function getDefaultAdapter () {
-					var adapter;
-					if (typeof XMLHttpRequest !== 'undefined') {
-						// For browsers use XHR adapter
-						adapter = require('../adapters/xhr');
-					} else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
-						// For node use HTTP adapter
-						adapter = require('../adapters/http');
-					}
-					return adapter;
-				}
-
-				function stringifySafely (rawValue, parser, encoder) {
-					if (utils.isString(rawValue)) {
-						try {
-							(parser || JSON.parse)(rawValue);
-							return utils.trim(rawValue);
-						} catch (e) {
-							if (e.name !== 'SyntaxError') {
-								throw e;
-							}
-						}
-					}
-
-					return (encoder || JSON.stringify)(rawValue);
-				}
-
-				var defaults = {
-
-					transitional: transitionalDefaults,
-
-					adapter: getDefaultAdapter(),
-
-					transformRequest: [ function transformRequest (data, headers) {
-						normalizeHeaderName(headers, 'Accept');
-						normalizeHeaderName(headers, 'Content-Type');
-
-						if (utils.isFormData(data) ||
-							utils.isArrayBuffer(data) ||
-							utils.isBuffer(data) ||
-							utils.isStream(data) ||
-							utils.isFile(data) ||
-							utils.isBlob(data)
-						) {
-							return data;
-						}
-						if (utils.isArrayBufferView(data)) {
-							return data.buffer;
-						}
-						if (utils.isURLSearchParams(data)) {
-							setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
-							return data.toString();
-						}
-						if (utils.isObject(data) || (headers && headers[ 'Content-Type' ] === 'application/json')) {
-							setContentTypeIfUnset(headers, 'application/json');
-							return stringifySafely(data);
-						}
-						return data;
-					} ],
-
-					transformResponse: [ function transformResponse (data) {
-						var transitional = this.transitional || defaults.transitional;
-						var silentJSONParsing = transitional && transitional.silentJSONParsing;
-						var forcedJSONParsing = transitional && transitional.forcedJSONParsing;
-						var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';
-
-						if (strictJSONParsing || (forcedJSONParsing && utils.isString(data) && data.length)) {
-							try {
-								return JSON.parse(data);
-							} catch (e) {
-								if (strictJSONParsing) {
-									if (e.name === 'SyntaxError') {
-										throw enhanceError(e, this, 'E_JSON_PARSE');
-									}
-									throw e;
-								}
-							}
-						}
-
-						return data;
-					} ],
-
-					/**
-					 * A timeout in milliseconds to abort a request. If set to 0 (default) a
-					 * timeout is not created.
-					 */
-					timeout: 0,
-
-					xsrfCookieName: 'XSRF-TOKEN',
-					xsrfHeaderName: 'X-XSRF-TOKEN',
-
-					maxContentLength: -1,
-					maxBodyLength: -1,
-
-					validateStatus: function validateStatus (status) {
-						return status >= 200 && status < 300;
-					},
-
-					headers: {
-						common: {
-							'Accept': 'application/json, text/plain, */*'
-						}
-					}
-				};
-
-				utils.forEach([ 'delete', 'get', 'head' ], function forEachMethodNoData (method) {
-					defaults.headers[ method ] = {};
-				});
-
-				utils.forEach([ 'post', 'put', 'patch' ], function forEachMethodWithData (method) {
-					defaults.headers[ method ] = utils.merge(DEFAULT_CONTENT_TYPE);
-				});
-
-				module.exports = defaults;
-
-			}).call(this);
-		}).call(this, require('_process'));
-
-	}, {
-		"../adapters/http": 25,
-		"../adapters/xhr": 25,
-		"../core/enhanceError": 35,
-		"../helpers/normalizeHeaderName": 49,
-		"../utils": 53,
-		"./transitional": 40,
-		"_process": 54
-	} ],
-	40: [ function (require, module, exports) {
-		'use strict';
-
-		module.exports = {
-			silentJSONParsing: true,
-			forcedJSONParsing: true,
-			clarifyTimeoutError: false
-		};
-
-	}, {} ],
-	41: [ function (require, module, exports) {
-		module.exports = {
-			"version": "0.26.1"
-		};
-	}, {} ],
-	42: [ function (require, module, exports) {
-		'use strict';
-
-		module.exports = function bind (fn, thisArg) {
-			return function wrap () {
-				var args = new Array(arguments.length);
-				for (var i = 0; i < args.length; i++) {
-					args[ i ] = arguments[ i ];
-				}
-				return fn.apply(thisArg, args);
-			};
-		};
-
-	}, {} ],
-	43: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./../utils');
-
-		function encode (val) {
-			return encodeURIComponent(val).
-				replace(/%3A/gi, ':').
-				replace(/%24/g, '$').
-				replace(/%2C/gi, ',').
-				replace(/%20/g, '+').
-				replace(/%5B/gi, '[').
-				replace(/%5D/gi, ']');
-		}
-
-		/**
-		 * Build a URL by appending params to the end
-		 *
-		 * @param {string} url The base of the url (e.g., http://www.google.com)
-		 * @param {object} [params] The params to be appended
-		 * @returns {string} The formatted url
-		 */
-		module.exports = function buildURL (url, params, paramsSerializer) {
-			/*eslint no-param-reassign:0*/
-			if (!params) {
-				return url;
-			}
-
-			var serializedParams;
-			if (paramsSerializer) {
-				serializedParams = paramsSerializer(params);
-			} else if (utils.isURLSearchParams(params)) {
-				serializedParams = params.toString();
-			} else {
-				var parts = [];
-
-				utils.forEach(params, function serialize (val, key) {
-					if (val === null || typeof val === 'undefined') {
-						return;
-					}
-
-					if (utils.isArray(val)) {
-						key = key + '[]';
-					} else {
-						val = [ val ];
-					}
-
-					utils.forEach(val, function parseValue (v) {
-						if (utils.isDate(v)) {
-							v = v.toISOString();
-						} else if (utils.isObject(v)) {
-							v = JSON.stringify(v);
-						}
-						parts.push(encode(key) + '=' + encode(v));
-					});
-				});
-
-				serializedParams = parts.join('&');
-			}
-
-			if (serializedParams) {
-				var hashmarkIndex = url.indexOf('#');
-				if (hashmarkIndex !== -1) {
-					url = url.slice(0, hashmarkIndex);
-				}
-
-				url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
-			}
-
-			return url;
-		};
-
-	}, {
-		"./../utils": 53
-	} ],
-	44: [ function (require, module, exports) {
-		'use strict';
-
-		/**
-		 * Creates a new URL by combining the specified URLs
-		 *
-		 * @param {string} baseURL The base URL
-		 * @param {string} relativeURL The relative URL
-		 * @returns {string} The combined URL
-		 */
-		module.exports = function combineURLs (baseURL, relativeURL) {
-			return relativeURL ?
-				baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '') :
-				baseURL;
-		};
-
-	}, {} ],
-	45: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./../utils');
-
-		module.exports = (
-			utils.isStandardBrowserEnv() ?
-
-				// Standard browser envs support document.cookie
-				(function standardBrowserEnv () {
-					return {
-						write: function write (name, value, expires, path, domain, secure) {
-							var cookie = [];
-							cookie.push(name + '=' + encodeURIComponent(value));
-
-							if (utils.isNumber(expires)) {
-								cookie.push('expires=' + new Date(expires).toGMTString());
-							}
-
-							if (utils.isString(path)) {
-								cookie.push('path=' + path);
-							}
-
-							if (utils.isString(domain)) {
-								cookie.push('domain=' + domain);
-							}
-
-							if (secure === true) {
-								cookie.push('secure');
-							}
-
-							document.cookie = cookie.join('; ');
-						},
-
-						read: function read (name) {
-							var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
-							return (match ? decodeURIComponent(match[ 3 ]) : null);
-						},
-
-						remove: function remove (name) {
-							this.write(name, '', Date.now() - 86400000);
-						}
-					};
-				})() :
-
-				// Non standard browser env (web workers, react-native) lack needed support.
-				(function nonStandardBrowserEnv () {
-					return {
-						write: function write () { },
-						read: function read () {
-							return null;
-						},
-						remove: function remove () { }
-					};
-				})()
-		);
-
-	}, {
-		"./../utils": 53
-	} ],
-	46: [ function (require, module, exports) {
-		'use strict';
-
-		/**
-		 * Determines whether the specified URL is absolute
-		 *
-		 * @param {string} url The URL to test
-		 * @returns {boolean} True if the specified URL is absolute, otherwise false
-		 */
-		module.exports = function isAbsoluteURL (url) {
-			// A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
-			// RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
-			// by any combination of letters, digits, plus, period, or hyphen.
-			return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
-		};
-
-	}, {} ],
-	47: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./../utils');
-
-		/**
-		 * Determines whether the payload is an error thrown by Axios
-		 *
-		 * @param {*} payload The value to test
-		 * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
-		 */
-		module.exports = function isAxiosError (payload) {
-			return utils.isObject(payload) && (payload.isAxiosError === true);
-		};
-
-	}, {
-		"./../utils": 53
-	} ],
-	48: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./../utils');
-
-		module.exports = (
-			utils.isStandardBrowserEnv() ?
-
-				// Standard browser envs have full support of the APIs needed to test
-				// whether the request URL is of the same origin as current location.
-				(function standardBrowserEnv () {
-					var msie = /(msie|trident)/i.test(navigator.userAgent);
-					var urlParsingNode = document.createElement('a');
-					var originURL;
-
-					/**
-					 * Parse a URL to discover it's components
-					 *
-					 * @param {String} url The URL to be parsed
-					 * @returns {Object}
-					 */
-					function resolveURL (url) {
-						var href = url;
-
-						if (msie) {
-							// IE needs attribute set twice to normalize properties
-							urlParsingNode.setAttribute('href', href);
-							href = urlParsingNode.href;
-						}
-
-						urlParsingNode.setAttribute('href', href);
-
-						// urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
-						return {
-							href: urlParsingNode.href,
-							protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
-							host: urlParsingNode.host,
-							search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
-							hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
-							hostname: urlParsingNode.hostname,
-							port: urlParsingNode.port,
-							pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
-								urlParsingNode.pathname : '/' + urlParsingNode.pathname
-						};
-					}
-
-					originURL = resolveURL(window.location.href);
-
-					/**
-					 * Determine if a URL shares the same origin as the current location
-					 *
-					 * @param {String} requestURL The URL to test
-					 * @returns {boolean} True if URL shares the same origin, otherwise false
-					 */
-					return function isURLSameOrigin (requestURL) {
-						var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
-						return (parsed.protocol === originURL.protocol &&
-							parsed.host === originURL.host);
-					};
-				})() :
-
-				// Non standard browser envs (web workers, react-native) lack needed support.
-				(function nonStandardBrowserEnv () {
-					return function isURLSameOrigin () {
-						return true;
-					};
-				})()
-		);
-
-	}, {
-		"./../utils": 53
-	} ],
-	49: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('../utils');
-
-		module.exports = function normalizeHeaderName (headers, normalizedName) {
-			utils.forEach(headers, function processHeader (value, name) {
-				if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
-					headers[ normalizedName ] = value;
-					delete headers[ name ];
-				}
-			});
-		};
-
-	}, {
-		"../utils": 53
-	} ],
-	50: [ function (require, module, exports) {
-		'use strict';
-
-		var utils = require('./../utils');
-
-		// Headers whose duplicates are ignored by node
-		// c.f. https://nodejs.org/api/http.html#http_message_headers
-		var ignoreDuplicateOf = [
-			'age', 'authorization', 'content-length', 'content-type', 'etag',
-			'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
-			'last-modified', 'location', 'max-forwards', 'proxy-authorization',
-			'referer', 'retry-after', 'user-agent'
-		];
-
-		/**
-		 * Parse headers into an object
-		 *
-		 * ```
-		 * Date: Wed, 27 Aug 2014 08:58:49 GMT
-		 * Content-Type: application/json
-		 * Connection: keep-alive
-		 * Transfer-Encoding: chunked
-		 * ```
-		 *
-		 * @param {String} headers Headers needing to be parsed
-		 * @returns {Object} Headers parsed into an object
-		 */
-		module.exports = function parseHeaders (headers) {
-			var parsed = {};
-			var key;
-			var val;
-			var i;
-
-			if (!headers) {
-				return parsed;
-			}
-
-			utils.forEach(headers.split('\n'), function parser (line) {
-				i = line.indexOf(':');
-				key = utils.trim(line.substr(0, i)).toLowerCase();
-				val = utils.trim(line.substr(i + 1));
-
-				if (key) {
-					if (parsed[ key ] && ignoreDuplicateOf.indexOf(key) >= 0) {
-						return;
-					}
-					if (key === 'set-cookie') {
-						parsed[ key ] = (parsed[ key ] ? parsed[ key ] : []).concat([ val ]);
-					} else {
-						parsed[ key ] = parsed[ key ] ? parsed[ key ] + ', ' + val : val;
-					}
-				}
-			});
-
-			return parsed;
-		};
-
-	}, {
-		"./../utils": 53
-	} ],
-	51: [ function (require, module, exports) {
-		'use strict';
-
-		/**
-		 * Syntactic sugar for invoking a function and expanding an array for arguments.
-		 *
-		 * Common use case would be to use `Function.prototype.apply`.
-		 *
-		 *  ```js
-		 *  function f(x, y, z) {}
-		 *  var args = [1, 2, 3];
-		 *  f.apply(null, args);
-		 *  ```
-		 *
-		 * With `spread` this example can be re-written.
-		 *
-		 *  ```js
-		 *  spread(function(x, y, z) {})([1, 2, 3]);
-		 *  ```
-		 *
-		 * @param {Function} callback
-		 * @returns {Function}
-		 */
-		module.exports = function spread (callback) {
-			return function wrap (arr) {
-				return callback.apply(null, arr);
-			};
-		};
-
-	}, {} ],
-	52: [ function (require, module, exports) {
-		'use strict';
-
-		var VERSION = require('../env/data').version;
-
-		var validators = {};
-
-		// eslint-disable-next-line func-names
-		[ 'object', 'boolean', 'number', 'function', 'string', 'symbol' ].forEach(function (type, i) {
-			validators[ type ] = function validator (thing) {
-				return typeof thing === type || 'a' + (i < 1 ? 'n ' : ' ') + type;
-			};
-		});
-
-		var deprecatedWarnings = {};
-
-		/**
-		 * Transitional option validator
-		 * @param {function|boolean?} validator - set to false if the transitional option has been removed
-		 * @param {string?} version - deprecated version / removed since version
-		 * @param {string?} message - some message with additional info
-		 * @returns {function}
-		 */
-		validators.transitional = function transitional (validator, version, message) {
-			function formatMessage (opt, desc) {
-				return '[Axios v' + VERSION + '] Transitional option \'' + opt + '\'' + desc + (message ? '. ' + message : '');
-			}
-
-			// eslint-disable-next-line func-names
-			return function (value, opt, opts) {
-				if (validator === false) {
-					throw new Error(formatMessage(opt, ' has been removed' + (version ? ' in ' + version : '')));
-				}
-
-				if (version && !deprecatedWarnings[ opt ]) {
-					deprecatedWarnings[ opt ] = true;
-					// eslint-disable-next-line no-console
-					console.warn(
-						formatMessage(
-							opt,
-							' has been deprecated since v' + version + ' and will be removed in the near future'
-						)
-					);
-				}
-
-				return validator ? validator(value, opt, opts) : true;
-			};
-		};
-
-		/**
-		 * Assert object's properties type
-		 * @param {object} options
-		 * @param {object} schema
-		 * @param {boolean?} allowUnknown
-		 */
-
-		function assertOptions (options, schema, allowUnknown) {
-			if (typeof options !== 'object') {
-				throw new TypeError('options must be an object');
-			}
-			var keys = Object.keys(options);
-			var i = keys.length;
-			while (i-- > 0) {
-				var opt = keys[ i ];
-				var validator = schema[ opt ];
-				if (validator) {
-					var value = options[ opt ];
-					var result = value === undefined || validator(value, opt, options);
-					if (result !== true) {
-						throw new TypeError('option ' + opt + ' must be ' + result);
-					}
-					continue;
-				}
-				if (allowUnknown !== true) {
-					throw Error('Unknown option ' + opt);
-				}
-			}
-		}
-
-		module.exports = {
-			assertOptions: assertOptions,
-			validators: validators
-		};
-
-	}, {
-		"../env/data": 41
-	} ],
-	53: [ function (require, module, exports) {
-		'use strict';
-
-		var bind = require('./helpers/bind');
-
-		// utils is a library of generic helper functions non-specific to axios
-
-		var toString = Object.prototype.toString;
-
-		/**
-		 * Determine if a value is an Array
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is an Array, otherwise false
-		 */
-		function isArray (val) {
-			return Array.isArray(val);
-		}
-
-		/**
-		 * Determine if a value is undefined
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if the value is undefined, otherwise false
-		 */
-		function isUndefined (val) {
-			return typeof val === 'undefined';
-		}
-
-		/**
-		 * Determine if a value is a Buffer
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is a Buffer, otherwise false
-		 */
-		function isBuffer (val) {
-			return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor) &&
-				typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);
-		}
-
-		/**
-		 * Determine if a value is an ArrayBuffer
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is an ArrayBuffer, otherwise false
-		 */
-		function isArrayBuffer (val) {
-			return toString.call(val) === '[object ArrayBuffer]';
-		}
-
-		/**
-		 * Determine if a value is a FormData
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is an FormData, otherwise false
-		 */
-		function isFormData (val) {
-			return toString.call(val) === '[object FormData]';
-		}
-
-		/**
-		 * Determine if a value is a view on an ArrayBuffer
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
-		 */
-		function isArrayBufferView (val) {
-			var result;
-			if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
-				result = ArrayBuffer.isView(val);
-			} else {
-				result = (val) && (val.buffer) && (isArrayBuffer(val.buffer));
-			}
-			return result;
-		}
-
-		/**
-		 * Determine if a value is a String
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is a String, otherwise false
-		 */
-		function isString (val) {
-			return typeof val === 'string';
-		}
-
-		/**
-		 * Determine if a value is a Number
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is a Number, otherwise false
-		 */
-		function isNumber (val) {
-			return typeof val === 'number';
-		}
-
-		/**
-		 * Determine if a value is an Object
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is an Object, otherwise false
-		 */
-		function isObject (val) {
-			return val !== null && typeof val === 'object';
-		}
-
-		/**
-		 * Determine if a value is a plain Object
-		 *
-		 * @param {Object} val The value to test
-		 * @return {boolean} True if value is a plain Object, otherwise false
-		 */
-		function isPlainObject (val) {
-			if (toString.call(val) !== '[object Object]') {
-				return false;
-			}
-
-			var prototype = Object.getPrototypeOf(val);
-			return prototype === null || prototype === Object.prototype;
-		}
-
-		/**
-		 * Determine if a value is a Date
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is a Date, otherwise false
-		 */
-		function isDate (val) {
-			return toString.call(val) === '[object Date]';
-		}
-
-		/**
-		 * Determine if a value is a File
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is a File, otherwise false
-		 */
-		function isFile (val) {
-			return toString.call(val) === '[object File]';
-		}
-
-		/**
-		 * Determine if a value is a Blob
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is a Blob, otherwise false
-		 */
-		function isBlob (val) {
-			return toString.call(val) === '[object Blob]';
-		}
-
-		/**
-		 * Determine if a value is a Function
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is a Function, otherwise false
-		 */
-		function isFunction (val) {
-			return toString.call(val) === '[object Function]';
-		}
-
-		/**
-		 * Determine if a value is a Stream
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is a Stream, otherwise false
-		 */
-		function isStream (val) {
-			return isObject(val) && isFunction(val.pipe);
-		}
-
-		/**
-		 * Determine if a value is a URLSearchParams object
-		 *
-		 * @param {Object} val The value to test
-		 * @returns {boolean} True if value is a URLSearchParams object, otherwise false
-		 */
-		function isURLSearchParams (val) {
-			return toString.call(val) === '[object URLSearchParams]';
-		}
-
-		/**
-		 * Trim excess whitespace off the beginning and end of a string
-		 *
-		 * @param {String} str The String to trim
-		 * @returns {String} The String freed of excess whitespace
-		 */
-		function trim (str) {
-			return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g, '');
-		}
-
-		/**
-		 * Determine if we're running in a standard browser environment
-		 *
-		 * This allows axios to run in a web worker, and react-native.
-		 * Both environments support XMLHttpRequest, but not fully standard globals.
-		 *
-		 * web workers:
-		 *  typeof window -> undefined
-		 *  typeof document -> undefined
-		 *
-		 * react-native:
-		 *  navigator.product -> 'ReactNative'
-		 * nativescript
-		 *  navigator.product -> 'NativeScript' or 'NS'
-		 */
-		function isStandardBrowserEnv () {
-			if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
-				navigator.product === 'NativeScript' ||
-				navigator.product === 'NS')) {
-				return false;
-			}
-			return (
-				typeof window !== 'undefined' &&
-				typeof document !== 'undefined'
-			);
-		}
-
-		/**
-		 * Iterate over an Array or an Object invoking a function for each item.
-		 *
-		 * If `obj` is an Array callback will be called passing
-		 * the value, index, and complete array for each item.
-		 *
-		 * If 'obj' is an Object callback will be called passing
-		 * the value, key, and complete object for each property.
-		 *
-		 * @param {Object|Array} obj The object to iterate
-		 * @param {Function} fn The callback to invoke for each item
-		 */
-		function forEach (obj, fn) {
-			// Don't bother if no value provided
-			if (obj === null || typeof obj === 'undefined') {
-				return;
-			}
-
-			// Force an array if not already something iterable
-			if (typeof obj !== 'object') {
-				/*eslint no-param-reassign:0*/
-				obj = [ obj ];
-			}
-
-			if (isArray(obj)) {
-				// Iterate over array values
-				for (var i = 0, l = obj.length; i < l; i++) {
-					fn.call(null, obj[ i ], i, obj);
-				}
-			} else {
-				// Iterate over object keys
-				for (var key in obj) {
-					if (Object.prototype.hasOwnProperty.call(obj, key)) {
-						fn.call(null, obj[ key ], key, obj);
-					}
-				}
-			}
-		}
-
-		/**
-		 * Accepts varargs expecting each argument to be an object, then
-		 * immutably merges the properties of each object and returns result.
-		 *
-		 * When multiple objects contain the same key the later object in
-		 * the arguments list will take precedence.
-		 *
-		 * Example:
-		 *
-		 * ```js
-		 * var result = merge({foo: 123}, {foo: 456});
-		 * console.log(result.foo); // outputs 456
-		 * ```
-		 *
-		 * @param {Object} obj1 Object to merge
-		 * @returns {Object} Result of all merge properties
-		 */
-		function merge ( /* obj1, obj2, obj3, ... */) {
-			var result = {};
-
-			function assignValue (val, key) {
-				if (isPlainObject(result[ key ]) && isPlainObject(val)) {
-					result[ key ] = merge(result[ key ], val);
-				} else if (isPlainObject(val)) {
-					result[ key ] = merge({}, val);
-				} else if (isArray(val)) {
-					result[ key ] = val.slice();
-				} else {
-					result[ key ] = val;
-				}
-			}
-
-			for (var i = 0, l = arguments.length; i < l; i++) {
-				forEach(arguments[ i ], assignValue);
-			}
-			return result;
-		}
-
-		/**
-		 * Extends object a by mutably adding to it the properties of object b.
-		 *
-		 * @param {Object} a The object to be extended
-		 * @param {Object} b The object to copy properties from
-		 * @param {Object} thisArg The object to bind function to
-		 * @return {Object} The resulting value of object a
-		 */
-		function extend (a, b, thisArg) {
-			forEach(b, function assignValue (val, key) {
-				if (thisArg && typeof val === 'function') {
-					a[ key ] = bind(val, thisArg);
-				} else {
-					a[ key ] = val;
-				}
-			});
-			return a;
-		}
-
-		/**
-		 * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
-		 *
-		 * @param {string} content with BOM
-		 * @return {string} content value without BOM
-		 */
-		function stripBOM (content) {
-			if (content.charCodeAt(0) === 0xFEFF) {
-				content = content.slice(1);
-			}
-			return content;
-		}
-
-		module.exports = {
-			isArray: isArray,
-			isArrayBuffer: isArrayBuffer,
-			isBuffer: isBuffer,
-			isFormData: isFormData,
-			isArrayBufferView: isArrayBufferView,
-			isString: isString,
-			isNumber: isNumber,
-			isObject: isObject,
-			isPlainObject: isPlainObject,
-			isUndefined: isUndefined,
-			isDate: isDate,
-			isFile: isFile,
-			isBlob: isBlob,
-			isFunction: isFunction,
-			isStream: isStream,
-			isURLSearchParams: isURLSearchParams,
-			isStandardBrowserEnv: isStandardBrowserEnv,
-			forEach: forEach,
-			merge: merge,
-			extend: extend,
-			trim: trim,
-			stripBOM: stripBOM
-		};
-
-	}, {
-		"./helpers/bind": 42
-	} ],
-	54: [ function (require, module, exports) {
-		// shim for using process in browser
-		var process = module.exports = {};
-
-		// cached from whatever global is present so that test runners that stub it
-		// don't break things.  But we need to wrap it in a try catch in case it is
-		// wrapped in strict mode code which doesn't define any globals.  It's inside a
-		// function because try/catches deoptimize in certain engines.
-
-		var cachedSetTimeout;
-		var cachedClearTimeout;
-
-		function defaultSetTimout () {
-			throw new Error('setTimeout has not been defined');
-		}
-
-		function defaultClearTimeout () {
-			throw new Error('clearTimeout has not been defined');
-		}
-		(function () {
-			try {
-				if (typeof setTimeout === 'function') {
-					cachedSetTimeout = setTimeout;
-				} else {
-					cachedSetTimeout = defaultSetTimout;
-				}
-			} catch (e) {
-				cachedSetTimeout = defaultSetTimout;
-			}
-			try {
-				if (typeof clearTimeout === 'function') {
-					cachedClearTimeout = clearTimeout;
-				} else {
-					cachedClearTimeout = defaultClearTimeout;
-				}
-			} catch (e) {
-				cachedClearTimeout = defaultClearTimeout;
-			}
-		}());
-
-		function runTimeout (fun) {
-			if (cachedSetTimeout === setTimeout) {
-				//normal enviroments in sane situations
-				return setTimeout(fun, 0);
-			}
-			// if setTimeout wasn't available but was latter defined
-			if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-				cachedSetTimeout = setTimeout;
-				return setTimeout(fun, 0);
-			}
-			try {
-				// when when somebody has screwed with setTimeout but no I.E. maddness
-				return cachedSetTimeout(fun, 0);
-			} catch (e) {
-				try {
-					// When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-					return cachedSetTimeout.call(null, fun, 0);
-				} catch (e) {
-					// same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-					return cachedSetTimeout.call(this, fun, 0);
-				}
-			}
-
-
-		}
-
-		function runClearTimeout (marker) {
-			if (cachedClearTimeout === clearTimeout) {
-				//normal enviroments in sane situations
-				return clearTimeout(marker);
-			}
-			// if clearTimeout wasn't available but was latter defined
-			if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-				cachedClearTimeout = clearTimeout;
-				return clearTimeout(marker);
-			}
-			try {
-				// when when somebody has screwed with setTimeout but no I.E. maddness
-				return cachedClearTimeout(marker);
-			} catch (e) {
-				try {
-					// When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-					return cachedClearTimeout.call(null, marker);
-				} catch (e) {
-					// same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-					// Some versions of I.E. have different rules for clearTimeout vs setTimeout
-					return cachedClearTimeout.call(this, marker);
-				}
-			}
-
-
-
-		}
-		var queue = [];
-		var draining = false;
-		var currentQueue;
-		var queueIndex = -1;
-
-		function cleanUpNextTick () {
-			if (!draining || !currentQueue) {
-				return;
-			}
-			draining = false;
-			if (currentQueue.length) {
-				queue = currentQueue.concat(queue);
-			} else {
-				queueIndex = -1;
-			}
-			if (queue.length) {
-				drainQueue();
-			}
-		}
-
-		function drainQueue () {
-			if (draining) {
-				return;
-			}
-			var timeout = runTimeout(cleanUpNextTick);
-			draining = true;
-
-			var len = queue.length;
-			while (len) {
-				currentQueue = queue;
-				queue = [];
-				while (++queueIndex < len) {
-					if (currentQueue) {
-						currentQueue[ queueIndex ].run();
-					}
-				}
-				queueIndex = -1;
-				len = queue.length;
-			}
-			currentQueue = null;
-			draining = false;
-			runClearTimeout(timeout);
-		}
-
-		process.nextTick = function (fun) {
-			var args = new Array(arguments.length - 1);
-			if (arguments.length > 1) {
-				for (var i = 1; i < arguments.length; i++) {
-					args[ i - 1 ] = arguments[ i ];
-				}
-			}
-			queue.push(new Item(fun, args));
-			if (queue.length === 1 && !draining) {
-				runTimeout(drainQueue);
-			}
-		};
-
-		// v8 likes predictible objects
-		function Item (fun, array) {
-			this.fun = fun;
-			this.array = array;
-		}
-		Item.prototype.run = function () {
-			this.fun.apply(null, this.array);
-		};
-		process.title = 'browser';
-		process.browser = true;
-		process.env = {};
-		process.argv = [];
-		process.version = ''; // empty string to avoid regexp issues
-		process.versions = {};
-
-		function noop () { }
-
-		process.on = noop;
-		process.addListener = noop;
-		process.once = noop;
-		process.off = noop;
-		process.removeListener = noop;
-		process.removeAllListeners = noop;
-		process.emit = noop;
-		process.prependListener = noop;
-		process.prependOnceListener = noop;
-
-		process.listeners = function (name) {
-			return [];
-		};
-
-		process.binding = function (name) {
-			throw new Error('process.binding is not supported');
-		};
-
-		process.cwd = function () {
-			return '/';
-		};
-		process.chdir = function (dir) {
-			throw new Error('process.chdir is not supported');
-		};
-		process.umask = function () {
-			return 0;
-		};
-
-	}, {} ],
-	55: [ function (require, module, exports) {
+	}],
+	24: [function(require, module, exports) {
 		"use strict";
 
 		var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -3407,7 +1199,7 @@
 		Object.defineProperty(exports, "__esModule", {
 			value: true
 		});
-		exports.productVariantFragment = exports.fetchVariantQuery = exports.fetchCheckoutQuery = exports.fetchCartQuery = exports[ "default" ] = void 0;
+		exports.productVariantFragment = exports.fetchVariantQuery = exports.fetchCheckoutQuery = exports.fetchCartQuery = exports["default"] = void 0;
 
 		var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -3431,52 +1223,50 @@
 
 		var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-		var _axios = _interopRequireDefault(require("axios"));
-
-		function _createSuper (Derived) {
+		function _createSuper(Derived) {
 			var hasNativeReflectConstruct = _isNativeReflectConstruct();
-			return function _createSuperInternal () {
-				var Super = (0, _getPrototypeOf2[ "default" ])(Derived),
+			return function _createSuperInternal() {
+				var Super = (0, _getPrototypeOf2["default"])(Derived),
 					result;
 				if (hasNativeReflectConstruct) {
-					var NewTarget = (0, _getPrototypeOf2[ "default" ])(this).constructor;
+					var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor;
 					result = Reflect.construct(Super, arguments, NewTarget);
 				} else {
 					result = Super.apply(this, arguments);
 				}
-				return (0, _possibleConstructorReturn2[ "default" ])(this, result);
+				return (0, _possibleConstructorReturn2["default"])(this, result);
 			};
 		}
 
-		function _isNativeReflectConstruct () {
+		function _isNativeReflectConstruct() {
 			if (typeof Reflect === "undefined" || !Reflect.construct) return false;
 			if (Reflect.construct.sham) return false;
 			if (typeof Proxy === "function") return true;
 			try {
-				Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () { }));
+				Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {}));
 				return true;
 			} catch (e) {
 				return false;
 			}
 		}
 
-		function ownKeys (object, enumerableOnly) {
+		function ownKeys(object, enumerableOnly) {
 			var keys = Object.keys(object);
 			if (Object.getOwnPropertySymbols) {
 				var symbols = Object.getOwnPropertySymbols(object);
-				enumerableOnly && (symbols = symbols.filter(function (sym) {
+				enumerableOnly && (symbols = symbols.filter(function(sym) {
 					return Object.getOwnPropertyDescriptor(object, sym).enumerable;
 				})), keys.push.apply(keys, symbols);
 			}
 			return keys;
 		}
 
-		function _objectSpread (target) {
+		function _objectSpread(target) {
 			for (var i = 1; i < arguments.length; i++) {
-				var source = null != arguments[ i ] ? arguments[ i ] : {};
-				i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
-					(0, _defineProperty2[ "default" ])(target, key, source[ key ]);
-				}) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+				var source = null != arguments[i] ? arguments[i] : {};
+				i % 2 ? ownKeys(Object(source), !0).forEach(function(key) {
+					(0, _defineProperty2["default"])(target, key, source[key]);
+				}) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
 					Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
 				});
 			}
@@ -3485,10 +1275,10 @@
 
 		// Main class, which accepts configuration in it's constructor and exposes
 		// helper methods
-		var ShopifyGtmInstrumentor = /*#__PURE__*/ function () {
+		var ShopifyGtmInstrumentor = /*#__PURE__*/ function() {
 			// Save settings and hydrate vars
-			function ShopifyGtmInstrumentor (param) {
-				(0, _classCallCheck2[ "default" ])(this, ShopifyGtmInstrumentor);
+			function ShopifyGtmInstrumentor(param) {
+				(0, _classCallCheck2["default"])(this, ShopifyGtmInstrumentor);
 
 				if (param == null) {
 					param = {};
@@ -3512,10 +1302,10 @@
 			// A view of a product element
 
 
-			(0, _createClass2[ "default" ])(ShopifyGtmInstrumentor, [ {
+			(0, _createClass2["default"])(ShopifyGtmInstrumentor, [{
 				key: "productImpression",
-				value: function () {
-					var _productImpression = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee (variantPayload) {
+				value: function() {
+					var _productImpression = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee(variantPayload) {
 						var _this = this;
 
 						var _ref,
@@ -3528,11 +1318,11 @@
 							eventPusher,
 							_args = arguments;
 
-						return _regenerator[ "default" ].wrap(function _callee$ (_context) {
+						return _regenerator["default"].wrap(function _callee$(_context) {
 							while (1) {
 								switch (_context.prev = _context.next) {
 									case 0:
-										_ref = _args.length > 1 && _args[ 1 ] !== undefined ? _args[ 1 ] : {}, el = _ref.el, list = _ref.list, position = _ref.position;
+										_ref = _args.length > 1 && _args[1] !== undefined ? _args[1] : {}, el = _ref.el, list = _ref.list, position = _ref.position;
 										flatVariant = [];
 
 										if (!(typeof window === 'undefined' || window === null)) {
@@ -3543,7 +1333,7 @@
 										return _context.abrupt("return");
 
 									case 4:
-										if (!((0, _typeof2[ "default" ])(variantPayload) === 'object' && typeof variantPayload.name === 'undefined')) {
+										if (!((0, _typeof2["default"])(variantPayload) === 'object' && typeof variantPayload.name === 'undefined')) {
 											_context.next = 14;
 											break;
 										}
@@ -3557,10 +1347,10 @@
 										}
 
 										_context.next = 9;
-										return this.getFlatVariant(variantPayload[ i ]);
+										return this.getFlatVariant(variantPayload[i]);
 
 									case 9:
-										if (flatVariant[ flatVariant.length ] = _context.sent) {
+										if (flatVariant[flatVariant.length] = _context.sent) {
 											_context.next = 11;
 											break;
 										}
@@ -3579,11 +1369,11 @@
 										}
 
 										for (_i = 0; _i < flatVariant.length; _i++) {
-											flatVariant[ _i ] = this.makeUaProductFieldObject(flatVariant[ _i ]);
+											flatVariant[_i] = this.makeUaProductFieldObject(flatVariant[_i]);
 										} // Fire event
 
 
-										eventPusher = function eventPusher () {
+										eventPusher = function eventPusher() {
 											return _this.pushEvent('Product Impression', {
 												listName: list,
 												listPosition: position,
@@ -3615,7 +1405,7 @@
 						}, _callee, this);
 					}));
 
-					function productImpression (_x) {
+					function productImpression(_x) {
 						return _productImpression.apply(this, arguments);
 					}
 
@@ -3624,8 +1414,8 @@
 
 			}, {
 				key: "productClick",
-				value: function () {
-					var _productClick = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee2 (variantPayload) {
+				value: function() {
+					var _productClick = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee2(variantPayload) {
 						var _ref2,
 							el,
 							list,
@@ -3635,11 +1425,11 @@
 							flatVariant,
 							_args2 = arguments;
 
-						return _regenerator[ "default" ].wrap(function _callee2$ (_context2) {
+						return _regenerator["default"].wrap(function _callee2$(_context2) {
 							while (1) {
 								switch (_context2.prev = _context2.next) {
 									case 0:
-										_ref2 = _args2.length > 1 && _args2[ 1 ] !== undefined ? _args2[ 1 ] : {}, el = _ref2.el, list = _ref2.list, position = _ref2.position, clickEvent = _ref2.clickEvent;
+										_ref2 = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : {}, el = _ref2.el, list = _ref2.list, position = _ref2.position, clickEvent = _ref2.clickEvent;
 
 										if (!(typeof window === 'undefined' || window === null)) {
 											_context2.next = 3;
@@ -3650,9 +1440,9 @@
 
 									case 3:
 										// Prevent navigation
-										if (clickUrl = __guard__(clickEvent != null ? clickEvent.currentTarget : undefined, function (x) {
-											return x.href;
-										})) {
+										if (clickUrl = __guard__(clickEvent != null ? clickEvent.currentTarget : undefined, function(x) {
+												return x.href;
+											})) {
 											if (clickEvent != null) {
 												clickEvent.preventDefault();
 											}
@@ -3686,9 +1476,9 @@
 														list: list
 													}
 												}), {}, {
-													products: [ _objectSpread(_objectSpread({}, this.makeUaProductFieldObject(flatVariant)), {}, {
+													products: [_objectSpread(_objectSpread({}, this.makeUaProductFieldObject(flatVariant)), {}, {
 														position: position
-													}) ]
+													})]
 												})
 											}
 										})); // Finish navigation
@@ -3708,7 +1498,7 @@
 						}, _callee2, this);
 					}));
 
-					function productClick (_x2) {
+					function productClick(_x2) {
 						return _productClick.apply(this, arguments);
 					}
 
@@ -3717,10 +1507,10 @@
 
 			}, {
 				key: "viewProductDetails",
-				value: function () {
-					var _viewProductDetails = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee3 (variantPayload) {
+				value: function() {
+					var _viewProductDetails = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee3(variantPayload) {
 						var flatVariant;
-						return _regenerator[ "default" ].wrap(function _callee3$ (_context3) {
+						return _regenerator["default"].wrap(function _callee3$(_context3) {
 							while (1) {
 								switch (_context3.prev = _context3.next) {
 									case 0:
@@ -3747,7 +1537,7 @@
 										return _context3.abrupt("return", this.pushEvent('View Product Details', _objectSpread(_objectSpread({}, flatVariant), {}, {
 											ecommerce: {
 												detail: {
-													products: [ this.makeUaProductFieldObject(flatVariant) ]
+													products: [this.makeUaProductFieldObject(flatVariant)]
 												}
 											}
 										})));
@@ -3760,7 +1550,7 @@
 						}, _callee3, this);
 					}));
 
-					function viewProductDetails (_x3) {
+					function viewProductDetails(_x3) {
 						return _viewProductDetails.apply(this, arguments);
 					}
 
@@ -3770,32 +1560,32 @@
 
 			}, {
 				key: "addToCart",
-				value: function addToCart (variantPayload, quantity) {
+				value: function addToCart(variantPayload, quantity) {
 					return this.updateQuantity(variantPayload, quantity, 'Add to Cart', 'add');
 				} // Used whenever there is a negative change in the quantity of a product in
 				// the cart.
 
 			}, {
 				key: "removeFromCart",
-				value: function removeFromCart (variantPayload, quantity) {
+				value: function removeFromCart(variantPayload, quantity) {
 					return this.updateQuantity(variantPayload, quantity, 'Remove from Cart', 'remove');
 				} // Used both fire the `Update Quantity` event but also as a helper for the
 				// add and remove methods.
 
 			}, {
 				key: "updateQuantity",
-				value: function () {
-					var _updateQuantity = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee4 (variantPayload, quantity) {
+				value: function() {
+					var _updateQuantity = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee4(variantPayload, quantity) {
 						var gtmEvent,
 							ecommerceAction,
 							flatVariant,
 							_args4 = arguments;
-						return _regenerator[ "default" ].wrap(function _callee4$ (_context4) {
+						return _regenerator["default"].wrap(function _callee4$(_context4) {
 							while (1) {
 								switch (_context4.prev = _context4.next) {
 									case 0:
-										gtmEvent = _args4.length > 2 && _args4[ 2 ] !== undefined ? _args4[ 2 ] : 'Update Quantity';
-										ecommerceAction = _args4.length > 3 ? _args4[ 3 ] : undefined;
+										gtmEvent = _args4.length > 2 && _args4[2] !== undefined ? _args4[2] : 'Update Quantity';
+										ecommerceAction = _args4.length > 3 ? _args4[3] : undefined;
 
 										if (!(typeof window === 'undefined' || window === null)) {
 											_context4.next = 4;
@@ -3820,13 +1610,13 @@
 										return _context4.abrupt("return", this.pushEvent(gtmEvent, _objectSpread(_objectSpread({}, flatVariant), {}, {
 											quantity: quantity
 										}, !ecommerceAction ? {} : {
-											ecommerce: (0, _defineProperty2[ "default" ])({
+											ecommerce: (0, _defineProperty2["default"])({
 												currencyCode: this.currencyCode
 											}, ecommerceAction, {
-												products: [ {
+												products: [{
 													items: this.makeUaProductFieldObject(flatVariant),
 													quantity: quantity
-												} ]
+												}]
 											})
 										})));
 
@@ -3838,7 +1628,7 @@
 						}, _callee4, this);
 					}));
 
-					function updateQuantity (_x4, _x5) {
+					function updateQuantity(_x4, _x5) {
 						return _updateQuantity.apply(this, arguments);
 					}
 
@@ -3847,10 +1637,10 @@
 
 			}, {
 				key: "cartUpdated",
-				value: function () {
-					var _cartUpdated = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee5 (checkoutOrCartPayload) {
+				value: function() {
+					var _cartUpdated = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee5(checkoutOrCartPayload) {
 						var simplifiedCheckout;
-						return _regenerator[ "default" ].wrap(function _callee5$ (_context5) {
+						return _regenerator["default"].wrap(function _callee5$(_context5) {
 							while (1) {
 								switch (_context5.prev = _context5.next) {
 									case 0:
@@ -3881,7 +1671,7 @@
 						}, _callee5, this);
 					}));
 
-					function cartUpdated (_x6) {
+					function cartUpdated(_x6) {
 						return _cartUpdated.apply(this, arguments);
 					}
 
@@ -3890,10 +1680,10 @@
 
 			}, {
 				key: "checkout",
-				value: function () {
-					var _checkout = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee6 (checkoutOrCartPayload, checkoutStep) {
+				value: function() {
+					var _checkout = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee6(checkoutOrCartPayload, checkoutStep) {
 						var simplifiedCheckout;
-						return _regenerator[ "default" ].wrap(function _callee6$ (_context6) {
+						return _regenerator["default"].wrap(function _callee6$(_context6) {
 							while (1) {
 								switch (_context6.prev = _context6.next) {
 									case 0:
@@ -3936,7 +1726,7 @@
 						}, _callee6, this);
 					}));
 
-					function checkout (_x7, _x8) {
+					function checkout(_x7, _x8) {
 						return _checkout.apply(this, arguments);
 					}
 
@@ -3945,10 +1735,10 @@
 
 			}, {
 				key: "purchase",
-				value: function () {
-					var _purchase = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee7 (checkoutOrCartPayload) {
+				value: function() {
+					var _purchase = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee7(checkoutOrCartPayload) {
 						var simplifiedCheckout;
-						return _regenerator[ "default" ].wrap(function _callee7$ (_context7) {
+						return _regenerator["default"].wrap(function _callee7$(_context7) {
 							while (1) {
 								switch (_context7.prev = _context7.next) {
 									case 0:
@@ -3994,7 +1784,7 @@
 						}, _callee7, this);
 					}));
 
-					function purchase (_x9) {
+					function purchase(_x9) {
 						return _purchase.apply(this, arguments);
 					}
 
@@ -4003,7 +1793,7 @@
 
 			}, {
 				key: "identifyCustomer",
-				value: function identifyCustomer (customer) {
+				value: function identifyCustomer(customer) {
 					if (typeof window === 'undefined' || window === null) {
 						return;
 					}
@@ -4019,21 +1809,21 @@
 
 			}, {
 				key: "getFlatVariant",
-				value: function () {
-					var _getFlatVariant = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee8 (variantPayload) {
+				value: function() {
+					var _getFlatVariant = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee8(variantPayload) {
 						var products, variant, i, _i2, _variantPayload;
 
-						return _regenerator[ "default" ].wrap(function _callee8$ (_context8) {
+						return _regenerator["default"].wrap(function _callee8$(_context8) {
 							while (1) {
 								switch (_context8.prev = _context8.next) {
 									case 0:
-										if (!((0, _typeof2[ "default" ])(variantPayload) === 'object' || typeof variantPayload === 'array')) {
+										if (!((0, _typeof2["default"])(variantPayload) === 'object' || typeof variantPayload === 'array')) {
 											_context8.next = 24;
 											break;
 										}
 
 										for (i = 0; i < variantPayload.length; i++) {
-											products.push(variantPayload[ i ]);
+											products.push(variantPayload[i]);
 										}
 
 										_i2 = 0;
@@ -4044,9 +1834,9 @@
 											break;
 										}
 
-										_variantPayload = products[ _i2 ]; // Conditioally fetch from storefront API
+										_variantPayload = products[_i2]; // Conditioally fetch from storefront API
 
-										if (!((0, _typeof2[ "default" ])(_variantPayload) === 'object')) {
+										if (!((0, _typeof2["default"])(_variantPayload) === 'object')) {
 											_context8.next = 9;
 											break;
 										}
@@ -4070,7 +1860,7 @@
 											break;
 										}
 
-										products[ _i2 ] = this.makeFlatVariant(variant);
+										products[_i2] = this.makeFlatVariant(variant);
 										_context8.next = 18;
 										break;
 
@@ -4086,7 +1876,7 @@
 										return _context8.abrupt("return", products);
 
 									case 24:
-										if (!((0, _typeof2[ "default" ])(variantPayload) === 'object')) {
+										if (!((0, _typeof2["default"])(variantPayload) === 'object')) {
 											_context8.next = 28;
 											break;
 										}
@@ -4123,7 +1913,7 @@
 						}, _callee8, this);
 					}));
 
-					function getFlatVariant (_x10) {
+					function getFlatVariant(_x10) {
 						return _getFlatVariant.apply(this, arguments);
 					}
 
@@ -4133,10 +1923,10 @@
 
 			}, {
 				key: "fetchVariant",
-				value: function () {
-					var _fetchVariant = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee9 (variantId) {
+				value: function() {
+					var _fetchVariant = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee9(variantId) {
 						var result;
-						return _regenerator[ "default" ].wrap(function _callee9$ (_context9) {
+						return _regenerator["default"].wrap(function _callee9$(_context9) {
 							while (1) {
 								switch (_context9.prev = _context9.next) {
 									case 0:
@@ -4169,7 +1959,7 @@
 						}, _callee9, this);
 					}));
 
-					function fetchVariant (_x11) {
+					function fetchVariant(_x11) {
 						return _fetchVariant.apply(this, arguments);
 					}
 
@@ -4178,12 +1968,12 @@
 
 			}, {
 				key: "makeFlatVariant",
-				value: function makeFlatVariant (variant) {
+				value: function makeFlatVariant(variant) {
 					var productUrl, variantId, prodFallback;
 					var product = variant.product;
 
 					if (typeof product.collections !== 'undefined' && product.collections.length) {
-						prodFallback = product.collections.edges[ 0 ].node.title;
+						prodFallback = product.collections.edges[0].node.title;
 					} else {
 						prodFallback = '';
 					} // Product level info
@@ -4212,7 +2002,7 @@
 
 			}, {
 				key: "makeUaProductFieldObject",
-				value: function makeUaProductFieldObject (flatVariant) {
+				value: function makeUaProductFieldObject(flatVariant) {
 					return {
 						id: flatVariant.sku,
 						name: flatVariant.productVariantTitle,
@@ -4227,14 +2017,14 @@
 
 			}, {
 				key: "getSimplifiedCheckout",
-				value: function () {
-					var _getSimplifiedCheckout = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee10 (checkoutOrCartPayload) {
+				value: function() {
+					var _getSimplifiedCheckout = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee10(checkoutOrCartPayload) {
 						var checkout;
-						return _regenerator[ "default" ].wrap(function _callee10$ (_context10) {
+						return _regenerator["default"].wrap(function _callee10$(_context10) {
 							while (1) {
 								switch (_context10.prev = _context10.next) {
 									case 0:
-										if (!((0, _typeof2[ "default" ])(checkoutOrCartPayload) === 'object')) {
+										if (!((0, _typeof2["default"])(checkoutOrCartPayload) === 'object')) {
 											_context10.next = 4;
 											break;
 										}
@@ -4271,7 +2061,7 @@
 						}, _callee10, this);
 					}));
 
-					function getSimplifiedCheckout (_x12) {
+					function getSimplifiedCheckout(_x12) {
 						return _getSimplifiedCheckout.apply(this, arguments);
 					}
 
@@ -4280,20 +2070,20 @@
 
 			}, {
 				key: "fetchCheckout",
-				value: function () {
-					var _fetchCheckout = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee11 (checkoutOrCartId) {
+				value: function() {
+					var _fetchCheckout = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee11(checkoutOrCartId) {
 						var _atob$match, _atob$match2, all, type, _yield$this$queryStor, node;
 
-						return _regenerator[ "default" ].wrap(function _callee11$ (_context11) {
+						return _regenerator["default"].wrap(function _callee11$(_context11) {
 							while (1) {
 								switch (_context11.prev = _context11.next) {
 									case 0:
 										// Determine if cart of checkout request
-										_atob$match = atob(checkoutOrCartId).match(/gid:\/\/shopify\/(\w+)/), _atob$match2 = (0, _slicedToArray2[ "default" ])(_atob$match, 2), all = _atob$match2[ 0 ], type = _atob$match2[ 1 ]; // Get the data
+										_atob$match = atob(checkoutOrCartId).match(/gid:\/\/shopify\/(\w+)/), _atob$match2 = (0, _slicedToArray2["default"])(_atob$match, 2), all = _atob$match2[0], type = _atob$match2[1]; // Get the data
 
 										_context11.next = 3;
 										return this.queryStorefrontApi({
-											query: function () {
+											query: function() {
 												switch (type) {
 													case 'Cart':
 														return fetchCartQuery;
@@ -4331,7 +2121,7 @@
 						}, _callee11, this);
 					}));
 
-					function fetchCheckout (_x13) {
+					function fetchCheckout(_x13) {
 						return _fetchCheckout.apply(this, arguments);
 					}
 
@@ -4340,12 +2130,12 @@
 
 			}, {
 				key: "makeSimplifiedCheckout",
-				value: function makeSimplifiedCheckout (checkout) {
+				value: function makeSimplifiedCheckout(checkout) {
 					var _this2 = this;
 
 					// Flatten nodes that contain line items
 					if (checkout.lineItems.edges) {
-						checkout.lineItems = checkout.lineItems.edges.map(function (_ref3) {
+						checkout.lineItems = checkout.lineItems.edges.map(function(_ref3) {
 							var node = _ref3.node;
 							return node;
 						});
@@ -4357,7 +2147,7 @@
 						checkoutUrl: checkout.webUrl,
 						subtotalPrice: checkout.subtotalPrice,
 						totalPrice: checkout.totalPrice,
-						lineItems: checkout.lineItems.map(function (lineItem) {
+						lineItems: checkout.lineItems.map(function(lineItem) {
 							return _objectSpread({
 								lineItemId: getShopifyId(lineItem.id),
 								quantity: lineItem.quantity
@@ -4374,10 +2164,10 @@
 
 			}, {
 				key: "makeUaCheckoutProducts",
-				value: function makeUaCheckoutProducts (simplifiedCheckout) {
+				value: function makeUaCheckoutProducts(simplifiedCheckout) {
 					var _this3 = this;
 
-					return simplifiedCheckout.lineItems.map(function (lineItem) {
+					return simplifiedCheckout.lineItems.map(function(lineItem) {
 						return _objectSpread({
 							quantity: lineItem.quantity
 						}, _this3.makeUaProductFieldObject(lineItem));
@@ -4387,39 +2177,38 @@
 
 			}, {
 				key: "queryStorefrontApi",
-				value: function () {
-					var _queryStorefrontApi = (0, _asyncToGenerator2[ "default" ])( /*#__PURE__*/ _regenerator[ "default" ].mark(function _callee12 (payload) {
-						var response;
-						return _regenerator[ "default" ].wrap(function _callee12$ (_context12) {
+				value: function() {
+					var _queryStorefrontApi = (0, _asyncToGenerator2["default"])( /*#__PURE__*/ _regenerator["default"].mark(function _callee12(payload) {
+						var myHeaders, response;
+						return _regenerator["default"].wrap(function _callee12$(_context12) {
 							while (1) {
 								switch (_context12.prev = _context12.next) {
 									case 0:
-										_context12.next = 2;
-										return (0, _axios[ "default" ])({
-											url: "".concat(this.storeUrl, "/api/2021-10/graphql"),
-											method: 'post',
-											headers: {
-												Accept: 'application/json',
-												'Content-Type': 'application/json',
-												'X-Shopify-Storefront-Access-Token': this.storefrontToken
-											},
-											data: payload
+										window.testpayload = payload;
+										myHeaders = new Headers();
+										myHeaders.append('Accept', 'application/json');
+										myHeaders.append('Content-Type', 'application/json');
+										myHeaders.append('X-Shopify-Storefront-Access-Token', this.storefrontToken);
+										_context12.next = 7;
+										return fetch("".concat(this.storeUrl, "/api/2021-10/graphql"), {
+											method: 'POST',
+											headers: myHeaders,
+											body: JSON.stringify(payload),
+											redirect: 'follow'
+										}).then(function(response) {
+											return response.json();
+										}).then(function(json) {
+											return json;
+										})["catch"](function(error) {
+											console.log('error', error);
+											throw new StorefrontError(response.data.errors, payload);
 										});
 
-									case 2:
+									case 7:
 										response = _context12.sent;
+										return _context12.abrupt("return", response.data);
 
-										if (!response.data.errors) {
-											_context12.next = 5;
-											break;
-										}
-
-										throw new StorefrontError(response.data.errors, payload);
-
-									case 5:
-										return _context12.abrupt("return", response.data.data);
-
-									case 6:
+									case 9:
 									case "end":
 										return _context12.stop();
 								}
@@ -4427,7 +2216,7 @@
 						}, _callee12, this);
 					}));
 
-					function queryStorefrontApi (_x14) {
+					function queryStorefrontApi(_x14) {
 						return _queryStorefrontApi.apply(this, arguments);
 					}
 
@@ -4437,7 +2226,7 @@
 
 			}, {
 				key: "pushEvent",
-				value: function pushEvent (name, payload) {
+				value: function pushEvent(name, payload) {
 					if (this.debug) {
 						console.debug("'".concat(name, "'"), payload);
 					}
@@ -4468,7 +2257,7 @@
 
 			}, {
 				key: "isFirstOccurance",
-				value: function isFirstOccurance (eventName) {
+				value: function isFirstOccurance(eventName) {
 					if (Array.from(this.occurances).includes(eventName)) {
 						return false;
 					}
@@ -4476,13 +2265,13 @@
 					this.occurances.push(eventName);
 					return true;
 				}
-			} ]);
+			}]);
 			return ShopifyGtmInstrumentor;
 		}(); // STOREFRONT QUERIES ##########################################################
 		// Product Variant fragment
 
 
-		exports[ "default" ] = ShopifyGtmInstrumentor;
+		exports["default"] = ShopifyGtmInstrumentor;
 		var productVariantFragment = "fragment variant on ProductVariant {\n\tid\n\tsku\n\ttitle\n\tprice\n\tcompareAtPrice\n\timage { originalSrc }\n\tproduct {\n\t\tid\n\t\ttitle\n\t\thandle\n\t\tproductType\n\t\tvendor\n\t\tcollections(first: 1) {\n\t\t\tedges {\n\t\t\t\tnode {\n\t\t\t\t\ttitle\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}"; // Graphql query to fetch a variant by id
 
 		exports.productVariantFragment = productVariantFragment;
@@ -4497,40 +2286,40 @@
 
 		exports.fetchCheckoutQuery = fetchCheckoutQuery;
 
-		var StorefrontError = /*#__PURE__*/ function (_Error) {
-			(0, _inherits2[ "default" ])(StorefrontError, _Error);
+		var StorefrontError = /*#__PURE__*/ function(_Error) {
+			(0, _inherits2["default"])(StorefrontError, _Error);
 
 			var _super = _createSuper(StorefrontError);
 
-			function StorefrontError (errors, payload) {
+			function StorefrontError(errors, payload) {
 				var _this4;
 
-				(0, _classCallCheck2[ "default" ])(this, StorefrontError);
-				_this4 = _super.call(this, errors.map(function (e) {
+				(0, _classCallCheck2["default"])(this, StorefrontError);
+				_this4 = _super.call(this, errors.map(function(e) {
 					return e.debugMessage || e.message;
 				}).join(', '));
-				_this4.errors = errors.map(function (e) {
+				_this4.errors = errors.map(function(e) {
 					return JSON.stringify(e);
 				});
 				_this4.payload = payload;
 				return _this4;
 			}
 
-			(0, _createClass2[ "default" ])(StorefrontError, null, [ {
+			(0, _createClass2["default"])(StorefrontError, null, [{
 				key: "initClass",
-				value: function initClass () {
+				value: function initClass() {
 					this.prototype.name = 'StorefrontError';
 				}
-			} ]);
+			}]);
 			return StorefrontError;
-		}( /*#__PURE__*/(0, _wrapNativeSuper2[ "default" ])(Error));
+		}( /*#__PURE__*/ (0, _wrapNativeSuper2["default"])(Error));
 
 		StorefrontError.initClass(); // Get the id from a Shopify gid:// style id.  This strips everything but the
 		// last part of the string.  So gid://shopify/ProductVariant/34641879105581
 		// becomes 34641879105581
 		// https://regex101.com/r/3FIplL/1
 
-		var getShopifyId = function getShopifyId (id) {
+		var getShopifyId = function getShopifyId(id) {
 			if (String(id).match(/^\d+$/)) {
 				return id;
 			} // Already simple id
@@ -4541,14 +2330,14 @@
 			} // De-base64
 
 
-			return __guard__(id.match(/\/([^\/]+)$/), function (x) {
-				return x[ 1 ];
+			return __guard__(id.match(/\/([^\/]+)$/), function(x) {
+				return x[1];
 			}); // Get the id from the gid
 		}; // Get the position of an element with respect to it's parent
 		// https://stackoverflow.com/a/5913984/59160
 
 
-		var getElPosition = function getElPosition (el) {
+		var getElPosition = function getElPosition(el) {
 			var i = 1; // The first position will be `1`
 
 			while ((el = el.previousElementSibling) !== null) {
@@ -4561,10 +2350,10 @@
 		// https://stackoverflow.com/a/51106262/59160
 
 
-		var whenFirstInViewport = function whenFirstInViewport (el, callback) {
-			var observer = new IntersectionObserver(function (_ref4) {
-				var _ref5 = (0, _slicedToArray2[ "default" ])(_ref4, 1),
-					isIntersecting = _ref5[ 0 ].isIntersecting;
+		var whenFirstInViewport = function whenFirstInViewport(el, callback) {
+			var observer = new IntersectionObserver(function(_ref4) {
+				var _ref5 = (0, _slicedToArray2["default"])(_ref4, 1),
+					isIntersecting = _ref5[0].isIntersecting;
 
 				if (!isIntersecting) {
 					return;
@@ -4576,7 +2365,7 @@
 			return observer.observe(el);
 		};
 
-		function __guard__ (value, transform) {
+		function __guard__(value, transform) {
 			return typeof value !== 'undefined' && value !== null ? transform(value) : undefined;
 		}
 
@@ -4596,7 +2385,6 @@
 		"@babel/runtime/helpers/slicedToArray": 18,
 		"@babel/runtime/helpers/typeof": 19,
 		"@babel/runtime/helpers/wrapNativeSuper": 21,
-		"@babel/runtime/regenerator": 23,
-		"axios": 24
-	} ]
-}, {}, [ 55 ]);
+		"@babel/runtime/regenerator": 23
+	}]
+}, {}, [24])

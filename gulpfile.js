@@ -2,9 +2,7 @@ import gulp from 'gulp';
 import rename from 'gulp-rename';
 import buffer from 'gulp-buffer';
 import uglify from 'gulp-uglify';
-import tap from 'gulp-tap';
-import browserify from 'browserify';
-import babel from 'babelify';
+import babel from 'gulp-babel';
 import beautify from 'gulp-jsbeautifier';
 import concat from 'gulp-concat';
 
@@ -18,15 +16,7 @@ let beautifySettings = {
 gulp.task('build-framework', () => {
 	return gulp
 		.src('./src/ct-gtm.js', { read: false })
-		.pipe(
-			tap((file) => {
-				file.contents = browserify(file.path, {
-					debug: true,
-				})
-					.transform(babel)
-					.bundle();
-			}),
-		)
+		.pipe(babel({ presets: [ 'es2015' ] }))
 		.pipe(buffer())
 		.pipe(beautify(beautifySettings))
 		.pipe(gulp.dest('./dist/'))

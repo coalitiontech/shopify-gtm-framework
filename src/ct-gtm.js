@@ -1,6 +1,3 @@
-// Deps
-import axios from 'axios';
-
 // Main class, which accepts configuration in it's constructor and exposes
 // helper methods
 export default class ShopifyGtmInstrumentor {
@@ -530,21 +527,29 @@ export default class ShopifyGtmInstrumentor {
 	// STOREFRONT API ############################################################
 
 	// Query Storefront API
-	async queryStorefrontApi(payload) {
-		const response = await axios({
-			url: `${this.storeUrl}/api/2021-10/graphql`,
-			method: 'post',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-				'X-Shopify-Storefront-Access-Token': this.storefrontToken,
-			},
-			data: payload,
-		});
-		if (response.data.errors) {
-			throw new StorefrontError(response.data.errors, payload);
-		}
-		return response.data.data;
+	async queryStorefrontApi (payload) {
+		window.testpayload = payload;
+		var myHeaders = new Headers();
+		myHeaders.append('Accept', 'application/json');
+		myHeaders.append('Content-Type', 'application/json');
+		myHeaders.append('X-Shopify-Storefront-Access-Token', this.storefrontToken);
+
+		const response = await fetch(`${this.storeUrl}/api/2021-10/graphql`, {
+			method: 'POST',
+			headers: myHeaders,
+			body: JSON.stringify(payload),
+			redirect: 'follow'
+		})
+			.then(response => response.json())
+			.then(json => {
+				return json;
+			})
+			.catch(error => {
+				console.log('error',error);
+				throw new StorefrontError(response.data.errors, payload);
+			});
+
+		return response.data;
 	}
 
 	// DATALAYER WRITING #########################################################
