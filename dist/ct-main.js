@@ -102,6 +102,11 @@ function ct_init_gtm_shopify() {
 					};
 				}),
 			};
+			if (sessionStorage.getItem('ct-cart-contents')) {
+				ct_check_cart(current_cart, JSON.parse(atob(sessionStorage.getItem('ct-cart-contents'))));
+			} else {
+				sessionStorage.setItem('ct-cart-contents', btoa(JSON.stringify(current_cart)));
+			}
 		});
 
 		// Site search tracking
@@ -187,6 +192,97 @@ function ct_init_gtm_shopify() {
 			gtmEcomm.purchase(window.CHECKOUT_FOR_GTM_INSTRUMENTOR);
 		}
 
+		function ct_check_cart(cart, old_cart = current_cart) {
+			let type,
+				new_cart = {
+					products: [],
+				};
+			if (old_cart.products.length !== cart.products.length) {
+				if (
+					old_cart.products.length < cart.products.length
+				) {
+					// Product was added
+					const missingIndex = cart.products.reduce(
+						(acc, curV, curI) => {
+							if (
+								!old_cart.products.some(
+									(item) => item.id === curV.id,
+								)
+							) {
+								acc.push(curI);
+							}
+							return acc;
+						},
+						[],
+					);
+					for (let i = 0; i < missingIndex.length; i++) {
+						gtmEcomm.addToCart(
+							cart.products[missingIndex[i]].id,
+							cart.products[missingIndex[i]].quantity,
+						);
+					}
+				} else {
+					// Product was removed
+					const missingIndex = old_cart.products.reduce(
+						(acc, curV, curI) => {
+							if (
+								!cart.products.some(
+									(item) => item.id === curV.id,
+								)
+							) {
+								acc.push(curI);
+							}
+							return acc;
+						},
+						[],
+					);
+					for (let i = 0; i < missingIndex.length; i++) {
+						gtmEcomm.removeFromCart(
+							old_cart.products[missingIndex[i]].id,
+							old_cart.products[missingIndex[i]]
+							.quantity,
+						);
+					}
+				}
+			}
+
+			for (let i = 0; i < cart.products.length; i++) {
+				// If a product was added or removed
+				if (
+					old_cart.products.length ===
+					cart.products.length
+				) {
+					if (
+						cart.products[i].quantity !==
+						old_cart.products[i].quantity
+					) {
+						if (
+							old_cart.products[i].quantity <
+							cart.products[i].quantity
+						) {
+							// Product was added
+							gtmEcomm.addToCart(
+								cart.products[i].id,
+								cart.products[i].quantity -
+								old_cart.products[i].quantity,
+							);
+						} else if (
+							old_cart.products[i].quantity >
+							cart.products[i].quantity
+						) {
+							// Product was removed
+							gtmEcomm.removeFromCart(
+								cart.products[i].id,
+								old_cart.products[i].quantity -
+								cart.products[i].quantity,
+							);
+						}
+					}
+				}
+			}
+			sessionStorage.setItem('ct-cart-contents', btoa(JSON.stringify(cart)));
+		}
+
 		xhook.after(function(request, response) {
 			let responseUrl = String(response.url),
 				responseFinalUrl = String(request.finalUrl),
@@ -205,114 +301,17 @@ function ct_init_gtm_shopify() {
 				jQuery.getJSON(
 					`${settings.shop_url}/cart`,
 					function(response) {
-						let type,
-							new_cart = {
-								products: [],
-							},
-							old_cart = current_cart,
-							cart = {
-								products: response.items.map(function(
-									line_item,
-								) {
-									return {
-										id: line_item.id,
-										quantity: line_item.quantity,
-									};
-								}),
-							};
-
-						if (old_cart.products.length !== cart.products.length) {
-							if (
-								old_cart.products.length < cart.products.length
+						let cart = {
+							products: response.items.map(function(
+								line_item,
 							) {
-								// Product was added
-								const missingIndex = cart.products.reduce(
-									(acc, curV, curI) => {
-										if (
-											!old_cart.products.some(
-												(item) => item.id === curV.id,
-											)
-										) {
-											acc.push(curI);
-										}
-										return acc;
-									},
-									[],
-								);
-								for (let i = 0; i < missingIndex.length; i++) {
-									gtmEcomm.addToCart(
-										cart.products[missingIndex[i]].id,
-										cart.products[missingIndex[i]].quantity,
-									);
-								}
-							} else {
-								// Product was removed
-								const missingIndex = old_cart.products.reduce(
-									(acc, curV, curI) => {
-										if (
-											!cart.products.some(
-												(item) => item.id === curV.id,
-											)
-										) {
-											acc.push(curI);
-										}
-										return acc;
-									},
-									[],
-								);
-								for (let i = 0; i < missingIndex.length; i++) {
-									gtmEcomm.removeFromCart(
-										old_cart.products[missingIndex[i]].id,
-										old_cart.products[missingIndex[i]]
-										.quantity,
-									);
-								}
-							}
-						}
-
-						for (let i = 0; i < cart.products.length; i++) {
-							// If a product was added or removed
-							if (
-								old_cart.products.length ===
-								cart.products.length
-							) {
-								if (
-									cart.products[i].quantity !==
-									old_cart.products[i].quantity
-								) {
-									if (
-										old_cart.products[i].quantity <
-										cart.products[i].quantity
-									) {
-										// Product was added
-										gtmEcomm.addToCart(
-											cart.products[i].id,
-											cart.products[i].quantity -
-											old_cart.products[i].quantity,
-										);
-									} else if (
-										old_cart.products[i].quantity >
-										cart.products[i].quantity
-									) {
-										// Product was removed
-										gtmEcomm.removeFromCart(
-											cart.products[i].id,
-											old_cart.products[i].quantity -
-											cart.products[i].quantity,
-										);
-									}
-								}
-							}
-						}
-
-						current_cart = {
-							products: response.items.map(function(line_item) {
 								return {
 									id: line_item.id,
 									quantity: line_item.quantity,
 								};
 							}),
 						};
+						ct_check_cart(cart);
 					},
 				);
 			}

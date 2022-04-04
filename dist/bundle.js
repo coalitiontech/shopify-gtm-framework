@@ -7,22 +7,22 @@
 					if (!f && c) return c(i, !0);
 					if (u) return u(i, !0);
 					var a = new Error("Cannot find module '" + i + "'");
-					throw a.code = "MODULE_NOT_FOUND", a
+					throw a.code = "MODULE_NOT_FOUND", a;
 				}
 				var p = n[i] = {
 					exports: {}
 				};
 				e[i][0].call(p.exports, function(r) {
 					var n = e[i][1][r];
-					return o(n || r)
-				}, p, p.exports, r, e, n, t)
+					return o(n || r);
+				}, p, p.exports, r, e, n, t);
 			}
-			return n[i].exports
+			return n[i].exports;
 		}
 		for (var u = "function" == typeof require && require, i = 0; i < t.length; i++) o(t[i]);
-		return o
+		return o;
 	}
-	return r
+	return r;
 })()({
 	1: [function(require, module, exports) {
 		function _arrayLikeToArray(arr, len) {
@@ -2354,8 +2354,8 @@
 
 				module.exports = defaults;
 
-			}).call(this)
-		}).call(this, require('_process'))
+			}).call(this);
+		}).call(this, require('_process'));
 
 	}, {
 		"../adapters/http": 25,
@@ -3241,7 +3241,7 @@
 			} catch (e) {
 				cachedClearTimeout = defaultClearTimeout;
 			}
-		}())
+		}());
 
 		function runTimeout(fun) {
 			if (cachedSetTimeout === setTimeout) {
@@ -3381,15 +3381,15 @@
 		process.prependOnceListener = noop;
 
 		process.listeners = function(name) {
-			return []
-		}
+			return [];
+		};
 
 		process.binding = function(name) {
 			throw new Error('process.binding is not supported');
 		};
 
 		process.cwd = function() {
-			return '/'
+			return '/';
 		};
 		process.chdir = function(dir) {
 			throw new Error('process.chdir is not supported');
@@ -4599,7 +4599,7 @@
 		"@babel/runtime/regenerator": 23,
 		"axios": 24
 	}]
-}, {}, [55])
+}, {}, [55]);
 
 function ct_init_gtm_shopify() {
 	let current_cart,
@@ -4705,6 +4705,11 @@ function ct_init_gtm_shopify() {
 					};
 				}),
 			};
+			if (sessionStorage.getItem('ct-cart-contents')) {
+				ct_check_cart(current_cart, JSON.parse(atob(sessionStorage.getItem('ct-cart-contents'))));
+			} else {
+				sessionStorage.setItem('ct-cart-contents', btoa(JSON.stringify(current_cart)));
+			}
 		});
 
 		// Site search tracking
@@ -4790,6 +4795,97 @@ function ct_init_gtm_shopify() {
 			gtmEcomm.purchase(window.CHECKOUT_FOR_GTM_INSTRUMENTOR);
 		}
 
+		function ct_check_cart(cart, old_cart = current_cart) {
+			let type,
+				new_cart = {
+					products: [],
+				};
+			if (old_cart.products.length !== cart.products.length) {
+				if (
+					old_cart.products.length < cart.products.length
+				) {
+					// Product was added
+					const missingIndex = cart.products.reduce(
+						(acc, curV, curI) => {
+							if (
+								!old_cart.products.some(
+									(item) => item.id === curV.id,
+								)
+							) {
+								acc.push(curI);
+							}
+							return acc;
+						},
+						[],
+					);
+					for (let i = 0; i < missingIndex.length; i++) {
+						gtmEcomm.addToCart(
+							cart.products[missingIndex[i]].id,
+							cart.products[missingIndex[i]].quantity,
+						);
+					}
+				} else {
+					// Product was removed
+					const missingIndex = old_cart.products.reduce(
+						(acc, curV, curI) => {
+							if (
+								!cart.products.some(
+									(item) => item.id === curV.id,
+								)
+							) {
+								acc.push(curI);
+							}
+							return acc;
+						},
+						[],
+					);
+					for (let i = 0; i < missingIndex.length; i++) {
+						gtmEcomm.removeFromCart(
+							old_cart.products[missingIndex[i]].id,
+							old_cart.products[missingIndex[i]]
+							.quantity,
+						);
+					}
+				}
+			}
+
+			for (let i = 0; i < cart.products.length; i++) {
+				// If a product was added or removed
+				if (
+					old_cart.products.length ===
+					cart.products.length
+				) {
+					if (
+						cart.products[i].quantity !==
+						old_cart.products[i].quantity
+					) {
+						if (
+							old_cart.products[i].quantity <
+							cart.products[i].quantity
+						) {
+							// Product was added
+							gtmEcomm.addToCart(
+								cart.products[i].id,
+								cart.products[i].quantity -
+								old_cart.products[i].quantity,
+							);
+						} else if (
+							old_cart.products[i].quantity >
+							cart.products[i].quantity
+						) {
+							// Product was removed
+							gtmEcomm.removeFromCart(
+								cart.products[i].id,
+								old_cart.products[i].quantity -
+								cart.products[i].quantity,
+							);
+						}
+					}
+				}
+			}
+			sessionStorage.setItem('ct-cart-contents', btoa(JSON.stringify(cart)));
+		}
+
 		xhook.after(function(request, response) {
 			let responseUrl = String(response.url),
 				responseFinalUrl = String(request.finalUrl),
@@ -4808,114 +4904,17 @@ function ct_init_gtm_shopify() {
 				jQuery.getJSON(
 					`${settings.shop_url}/cart`,
 					function(response) {
-						let type,
-							new_cart = {
-								products: [],
-							},
-							old_cart = current_cart,
-							cart = {
-								products: response.items.map(function(
-									line_item,
-								) {
-									return {
-										id: line_item.id,
-										quantity: line_item.quantity,
-									};
-								}),
-							};
-
-						if (old_cart.products.length !== cart.products.length) {
-							if (
-								old_cart.products.length < cart.products.length
+						let cart = {
+							products: response.items.map(function(
+								line_item,
 							) {
-								// Product was added
-								const missingIndex = cart.products.reduce(
-									(acc, curV, curI) => {
-										if (
-											!old_cart.products.some(
-												(item) => item.id === curV.id,
-											)
-										) {
-											acc.push(curI);
-										}
-										return acc;
-									},
-									[],
-								);
-								for (let i = 0; i < missingIndex.length; i++) {
-									gtmEcomm.addToCart(
-										cart.products[missingIndex[i]].id,
-										cart.products[missingIndex[i]].quantity,
-									);
-								}
-							} else {
-								// Product was removed
-								const missingIndex = old_cart.products.reduce(
-									(acc, curV, curI) => {
-										if (
-											!cart.products.some(
-												(item) => item.id === curV.id,
-											)
-										) {
-											acc.push(curI);
-										}
-										return acc;
-									},
-									[],
-								);
-								for (let i = 0; i < missingIndex.length; i++) {
-									gtmEcomm.removeFromCart(
-										old_cart.products[missingIndex[i]].id,
-										old_cart.products[missingIndex[i]]
-										.quantity,
-									);
-								}
-							}
-						}
-
-						for (let i = 0; i < cart.products.length; i++) {
-							// If a product was added or removed
-							if (
-								old_cart.products.length ===
-								cart.products.length
-							) {
-								if (
-									cart.products[i].quantity !==
-									old_cart.products[i].quantity
-								) {
-									if (
-										old_cart.products[i].quantity <
-										cart.products[i].quantity
-									) {
-										// Product was added
-										gtmEcomm.addToCart(
-											cart.products[i].id,
-											cart.products[i].quantity -
-											old_cart.products[i].quantity,
-										);
-									} else if (
-										old_cart.products[i].quantity >
-										cart.products[i].quantity
-									) {
-										// Product was removed
-										gtmEcomm.removeFromCart(
-											cart.products[i].id,
-											old_cart.products[i].quantity -
-											cart.products[i].quantity,
-										);
-									}
-								}
-							}
-						}
-
-						current_cart = {
-							products: response.items.map(function(line_item) {
 								return {
 									id: line_item.id,
 									quantity: line_item.quantity,
 								};
 							}),
 						};
+						ct_check_cart(cart);
 					},
 				);
 			}
