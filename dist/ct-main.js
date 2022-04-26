@@ -21,6 +21,18 @@ function ct_init_gtm_shopify() {
 		return; // Exit
 	}
 
+	if (
+		typeof window.routes.cart_add_url === 'undefined' ||
+		typeof window.routes.cart_change_url === 'undefined' ||
+		typeof window.routes.cart_update_url === 'undefined'
+	) {
+		window.routes = {
+			cart_add_url: '/cart/add',
+			cart_change_url: '/cart/change',
+			cart_update_url: '/cart/update',
+		};
+	}
+
 	function loadExt(done, args) {
 		let that = this;
 		that.files = done;

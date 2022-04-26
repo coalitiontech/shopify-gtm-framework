@@ -21,6 +21,18 @@ function ct_init_gtm_shopify () {
         return; // Exit
     }
 
+    if (
+        typeof window.routes.cart_add_url === 'undefined' ||
+        typeof window.routes.cart_change_url === 'undefined' ||
+        typeof window.routes.cart_update_url === 'undefined'
+    ) {
+        window.routes = {
+            cart_add_url: '/cart/add',
+            cart_change_url: '/cart/change',
+            cart_update_url: '/cart/update',
+        };
+    }
+
     function loadExt (done, args) {
         let that = this;
         that.files = done;
@@ -286,8 +298,8 @@ function ct_init_gtm_shopify () {
 
         xhook.after(function (request, response) {
             let responseUrl = String(response.url),
-                responseFinalUrl = String(request.finalUrl),
-                requestUrl = String(request.url);
+            responseFinalUrl = String(request.finalUrl),
+            requestUrl = String(request.url);
             if (
                 responseUrl.includes(window.routes.cart_add_url) ||
                 responseUrl.includes(window.routes.cart_change_url) ||
@@ -303,8 +315,8 @@ function ct_init_gtm_shopify () {
                     `${settings.shop_url}/cart`,
                     function (response) {
                         let cart = {
-                            products: response.items.map(function (
-                                line_item,
+                        products: response.items.map(function (
+                            line_item,
                             ) {
                                 return {
                                     id: line_item.id,
