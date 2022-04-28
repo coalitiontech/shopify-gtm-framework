@@ -11,11 +11,11 @@ export default class ShopifyGtmInstrumentor {
 			enableCheckoutEcommerceProperty = true,
 		} = param;
 		this.debug = false;
-		this.storeUrl = window.ct_gtm_settings.shop_url;
-		this.SHOPIFY_URL = window.ct_gtm_settings.shop_url;
+		this.storeUrl = window.ct_gtm_settings.shop_url || `${ window.location.protocol }//${ window.location.host }`;
+		this.SHOPIFY_URL = window.ct_gtm_settings.shop_url || `${ window.location.protocol }//${ window.location.host }`;
 		this.storefrontToken = window.ct_gtm_settings.storefront_token;
 		this.SHOPIFY_STOREFRONT_TOKEN = window.ct_gtm_settings.storefront_token;
-		this.currencyCode = window.ct_gtm_settings.currency;
+		this.currencyCode = window.ct_gtm_settings.currency || 'USD';
 		this.disableEcommerceProperty = disableEcommerceProperty;
 		this.enableCheckoutEcommerceProperty = enableCheckoutEcommerceProperty;
 		this.occurances = [];
