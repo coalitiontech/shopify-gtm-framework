@@ -1,3 +1,10 @@
+function domReady(fn) {
+	document.addEventListener('DOMContentLoaded', fn);
+	if (document.readyState === 'interactive' || document.readyState === 'complete') {
+		fn();
+	}
+}
+
 function ct_init_gtm_shopify() {
 	let current_cart,
 		settings = {
@@ -104,6 +111,8 @@ function ct_init_gtm_shopify() {
 		gtmEcomm.identifyCustomer(settings.customer);
 	}
 
+	let product_link = 'a[href*="/products/"]:not([href*=".gif"]):not([href*=".png"]):not([href*=".jpg"]):not([href*=".svg"]):not([href*=".jpeg"]):not([href*=".php"]):not([href*=".js"]):not([href*=".css"])';
+
 	new loadExt(scripts_to_load, function() {
 		jQuery.getJSON(`${settings.shop_url}/cart`, function(response) {
 			current_cart = {
@@ -132,13 +141,13 @@ function ct_init_gtm_shopify() {
 			});
 		}
 
-		if (document.querySelectorAll('a[href*="/products/"]').length) {
+		if (document.querySelectorAll(product_link).length) {
 			let product_ids = [],
 				items = {},
 				index_prods = 0,
 				xhr = [];
 			[].forEach.call(
-				document.querySelectorAll('a[href*="/products/"]'),
+				document.querySelectorAll(product_link),
 				function(el) {
 					items[el.getAttribute('href')] = el;
 				},
@@ -174,7 +183,7 @@ function ct_init_gtm_shopify() {
 			});
 		}
 
-		$('a[href*="/products/"]').click(function() {
+		$(product_link).click(function() {
 			let url = $(this).attr('href').split(/[?#]/)[0].split('/');
 			let handle = url[url.length - 1];
 
@@ -330,5 +339,6 @@ function ct_init_gtm_shopify() {
 		});
 	});
 }
-
-document.addEventListener('DOMContentLoaded', ct_init_gtm_shopify);
+domReady(function() {
+	ct_init_gtm_shopify();
+});

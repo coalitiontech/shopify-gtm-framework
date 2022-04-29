@@ -63,9 +63,7 @@ gulp.task('concat-unminified', () => {
 
 gulp.task('watch',
 	gulp.parallel('build-framework', 'build-main', 'concat-minified', 'concat-unminified', () => {
-		gulp.watch('./src/ct-main.js', gulp.series('build-main'));
-		gulp.watch('./src/ct-gtm.js', gulp.series('build-framework'));
-		gulp.watch([ './dist/ct-gtm.js', './dist/ct-main.js' ], gulp.series('concat-unminified'));
-		gulp.watch([ './dist/ct-gtm.min.js', './dist/ct-main.min.js' ], gulp.series('concat-minified'));
+		gulp.watch('./src/ct-main.js', gulp.parallel('build-main', 'concat-minified', 'concat-unminified'));
+		gulp.watch('./src/ct-gtm.js', gulp.parallel('build-framework', 'concat-minified', 'concat-unminified'));
 	})
 );
