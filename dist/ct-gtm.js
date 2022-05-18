@@ -2373,7 +2373,7 @@
 			currencyCode: window.ct_gtm_settings.currency
 		});
 
-		if (window.Shopify && window.Shopify.Checkout) {
+		if (window.Shopify && window.Shopify.Checkout && window.Shopify.Checkout.step == 'thank_you') {
 			sessionStorage.removeItem('ct-cart-contents');
 		}
 
