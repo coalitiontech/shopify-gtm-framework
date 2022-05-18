@@ -2374,7 +2374,7 @@
 		});
 
 		if (window.Shopify && window.Shopify.Checkout) {
-			sessionStorage.removeItem('ct-cart-content');
+			sessionStorage.removeItem('ct-cart-contents');
 		}
 
 	}, {

@@ -749,5 +749,5 @@ window.gtmEcomm = new ShopifyGtmInstrumentor({
 	currencyCode: window.ct_gtm_settings.currency,
 });
 if (window.Shopify && window.Shopify.Checkout) {
-	sessionStorage.removeItem('ct-cart-content');
+	sessionStorage.removeItem('ct-cart-contents');
 }
