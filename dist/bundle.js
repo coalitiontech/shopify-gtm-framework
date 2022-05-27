@@ -2392,6 +2392,7 @@
 		"@babel/runtime/regenerator": 23
 	}]
 }, {}, [24])
+
 function domReady(fn) {
 	document.addEventListener('DOMContentLoaded', fn);
 	if (document.readyState === 'interactive' || document.readyState === 'complete') {
@@ -2490,15 +2491,15 @@ function ct_init_gtm_shopify() {
 
 	window.dataLayer = window.dataLayer || [];
 
-	let scripts_to_load = [
-		'https://cdnjs.cloudflare.com/ajax/libs/xhook/1.4.9/xhook.min.js',
-	];
-
 	if (!window.jQuery) {
 		scripts_to_load = [
 			'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js',
-			'https://cdnjs.cloudflare.com/ajax/libs/xhook/1.4.9/xhook.min.js',
 		];
+		new loadExt(scripts_to_load, function() {
+			initGTMShopifyCT();
+		});
+	} else {
+		initGTMShopifyCT();
 	}
 
 	if (settings.customer && typeof settings.customer === 'object') {
@@ -2507,7 +2508,7 @@ function ct_init_gtm_shopify() {
 
 	let product_link = 'a[href*="/products/"]:not([href*=".gif"]):not([href*=".png"]):not([href*=".jpg"]):not([href*=".svg"]):not([href*=".jpeg"]):not([href*=".php"]):not([href*=".js"]):not([href*=".css"])';
 
-	new loadExt(scripts_to_load, function() {
+	function initGTMShopifyCT() {
 		jQuery.getJSON(`${settings.shop_url}/cart`, function(response) {
 			current_cart = {
 				products: response.items.map(function(line_item) {
@@ -2697,41 +2698,7 @@ function ct_init_gtm_shopify() {
 			}
 			sessionStorage.setItem('ct-cart-contents', btoa(JSON.stringify(cart)));
 		}
-
-		xhook.after(function(request, response) {
-			let responseUrl = String(response.url),
-				responseFinalUrl = String(request.finalUrl),
-				requestUrl = String(request.url);
-			if (
-				responseUrl.includes(window.routes.cart_add_url) ||
-				responseUrl.includes(window.routes.cart_change_url) ||
-				responseUrl.includes(window.routes.cart_update_url) ||
-				responseFinalUrl.includes(window.routes.cart_add_url) ||
-				responseFinalUrl.includes(window.routes.cart_change_url) ||
-				responseFinalUrl.includes(window.routes.cart_update_url) ||
-				requestUrl.includes(window.routes.cart_add_url) ||
-				requestUrl.includes(window.routes.cart_change_url) ||
-				requestUrl.includes(window.routes.cart_update_url)
-			) {
-				jQuery.getJSON(
-					`${settings.shop_url}/cart`,
-					function(response) {
-						let cart = {
-							products: response.items.map(function(
-								line_item,
-							) {
-								return {
-									id: line_item.id,
-									quantity: line_item.quantity,
-								};
-							}),
-						};
-						ct_check_cart(cart);
-					},
-				);
-			}
-		});
-	});
+	}
 }
 domReady(function() {
 	ct_init_gtm_shopify();
