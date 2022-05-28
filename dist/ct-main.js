@@ -111,9 +111,10 @@ function ct_init_gtm_shopify() {
 		gtmEcomm.identifyCustomer(settings.customer);
 	}
 
-	let product_link = 'a[href*="/products/"]:not([href*=".gif"]):not([href*=".png"]):not([href*=".jpg"]):not([href*=".svg"]):not([href*=".jpeg"]):not([href*=".php"]):not([href*=".js"]):not([href*=".css"])';
-
 	function initGTMShopifyCT() {
+
+		let product_link = 'a[href*="/products/"]:not([href*=".gif"]):not([href*=".png"]):not([href*=".jpg"]):not([href*=".svg"]):not([href*=".jpeg"]):not([href*=".php"]):not([href*=".js"]):not([href*=".css"])';
+
 		jQuery.getJSON(`${settings.shop_url}/cart`, function(response) {
 			current_cart = {
 				products: response.items.map(function(line_item) {
