@@ -198,9 +198,9 @@ function ct_init_gtm_shopify () {
 
         // Product page tracking
         if (
-            settings.template.match(/.*product.*/gi) &&
-            !settings.template.match(/.*collection.*/gi) &&
-            typeof settings.productDetails === 'string' &&
+            settings.template.match(/product.*/gi) &&
+            !settings.template.match(/collection/gi) &&
+            ( typeof settings.productDetails === 'number' || typeof settings.productDetails === 'string' ) &&
             settings.productDetails !== ''
         ) {
             gtmEcomm.viewProductDetails(settings.productDetails);
