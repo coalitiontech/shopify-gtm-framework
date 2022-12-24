@@ -534,7 +534,7 @@ export default class ShopifyGtmInstrumentor {
 		myHeaders.append('Content-Type', 'application/json');
 		myHeaders.append('X-Shopify-Storefront-Access-Token', this.storefrontToken);
 
-		const response = await fetch(`${this.storeUrl}/api/2022-10/graphql`, {
+		const response = await fetch(`${this.storeUrl}/api/2022-07/graphql`, {
 			method: 'POST',
 			headers: myHeaders,
 			body: JSON.stringify(payload),
