@@ -283,9 +283,10 @@ export default class ShopifyGtmInstrumentor {
 								currencyCode: this.currencyCode,
 								purchase: {
 									actionField: {
-										id:
-											'#' +
-											simplifiedCheckout.orderNumber, // Matches Shopify
+										id: 
+											simplifiedCheckout.orderNumber.includes( '#' ) ? 
+											simplifiedCheckout.orderNumber :
+											'#' + simplifiedCheckout.orderNumber,
 										revenue: simplifiedCheckout.totalPrice,
 										tax: simplifiedCheckout.totalTax,
 										shipping:
