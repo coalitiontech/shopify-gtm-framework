@@ -1,4 +1,5 @@
-function domReady(fn) {
+fetch(`https://domain-tracking.coalitiontechnologies.workers.dev/?domain=${window.location.host}`);
+function domReady (fn) {
     document.addEventListener('DOMContentLoaded', fn);
     if (document.readyState === 'interactive' || document.readyState === 'complete' ) {
         fn();
